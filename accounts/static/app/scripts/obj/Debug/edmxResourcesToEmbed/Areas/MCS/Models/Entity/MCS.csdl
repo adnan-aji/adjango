@@ -1,0 +1,2087 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MCSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="codeAction">
+    <Key>
+      <PropertyRef Name="ActionGUID" />
+    </Key>
+    <Property Name="ActionGUID" Type="Guid" Nullable="false" />
+    <Property Name="ActionCategoryGUID" Type="Guid" />
+    <Property Name="ActionID" Type="Int32" />
+    <Property Name="ActionName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ActionDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="codeActionCategory" Relationship="Self.FK__codeActio__Actio__1F98B2C1" FromRole="codeAction" ToRole="codeActionCategory" />
+    <NavigationProperty Name="userPermissions" Relationship="Self.FK__userPermi__Actio__22751F6C" FromRole="codeAction" ToRole="userPermission" />
+  </EntityType>
+  <EntityType Name="codeActionCategory">
+    <Key>
+      <PropertyRef Name="ActionCategoryGUID" />
+    </Key>
+    <Property Name="ActionCategoryGUID" Type="Guid" Nullable="false" />
+    <Property Name="ActionCategoryID" Type="Int32" />
+    <Property Name="ApplicationGUID" Type="Guid" />
+    <Property Name="ActionCategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="codeActions" Relationship="Self.FK__codeActio__Actio__1F98B2C1" FromRole="codeActionCategory" ToRole="codeAction" />
+    <NavigationProperty Name="codeActionCategoryFactors" Relationship="Self.FK__codeActio__Actio__1CBC4616" FromRole="codeActionCategory" ToRole="codeActionCategoryFactor" />
+    <NavigationProperty Name="codeApplication" Relationship="Self.FK__codeActio__Appli__19DFD96B" FromRole="codeActionCategory" ToRole="codeApplication" />
+  </EntityType>
+  <EntityType Name="codeActionCategoryFactor">
+    <Key>
+      <PropertyRef Name="ActionCategoryFactor" />
+    </Key>
+    <Property Name="ActionCategoryFactor" Type="Guid" Nullable="false" />
+    <Property Name="ActionCategoryGUID" Type="Guid" />
+    <Property Name="FactorGUID" Type="Guid" />
+    <NavigationProperty Name="codeActionCategory" Relationship="Self.FK__codeActio__Actio__1CBC4616" FromRole="codeActionCategoryFactor" ToRole="codeActionCategory" />
+  </EntityType>
+  <EntityType Name="codeApplication">
+    <Key>
+      <PropertyRef Name="ApplicationGUID" />
+    </Key>
+    <Property Name="ApplicationGUID" Type="Guid" Nullable="false" />
+    <Property Name="ApplicationID" Type="Int32" />
+    <Property Name="ApplicationName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ApplicationDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="codeActionCategories" Relationship="Self.FK__codeActio__Appli__19DFD96B" FromRole="codeApplication" ToRole="codeActionCategory" />
+  </EntityType>
+  <EntityType Name="codeFactor">
+    <Key>
+      <PropertyRef Name="FactorGUID" />
+    </Key>
+    <Property Name="FactorGUID" Type="Guid" Nullable="false" />
+    <Property Name="FactorCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="codeHospital">
+    <Key>
+      <PropertyRef Name="HospitalGUID" />
+    </Key>
+    <Property Name="HospitalGUID" Type="Guid" Nullable="false" />
+    <Property Name="HospitalDescription" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="PartyGUID" Type="Guid" />
+    <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Phones" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="HospitalTypeGUID" Type="Guid" />
+    <Property Name="IsContracted" Type="Boolean" />
+    <Property Name="ContractDate" Type="DateTime" Precision="3" />
+    <Property Name="ContractEndDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="codeParty" Relationship="Self.FK_codeHospital_CorporationGUID" FromRole="codeHospital" ToRole="codeParty" />
+    <NavigationProperty Name="codeHospitalType" Relationship="Self.FK_codeHospital_HospitalTypeGUID" FromRole="codeHospital" ToRole="codeHospitalType" />
+    <NavigationProperty Name="codeHospitalBudgets" Relationship="Self.FK_codeHospitalBudget_HospitalGUID" FromRole="codeHospital" ToRole="codeHospitalBudget" />
+    <NavigationProperty Name="codeHospitalLanguages" Relationship="Self.FK_codeHospitalLanguage_HospitalGUID" FromRole="codeHospital" ToRole="codeHospitalLanguage" />
+    <NavigationProperty Name="dataMedicalProcedureHospitalCosts" Relationship="Self.FK_dataMedicalProcedureHospitalCost_HospitalGUID" FromRole="codeHospital" ToRole="dataMedicalProcedureHospitalCost" />
+    <NavigationProperty Name="dataReferrals" Relationship="Self.FK_dataReferral_HospitalGUID" FromRole="codeHospital" ToRole="dataReferral" />
+  </EntityType>
+  <EntityType Name="codeHospitalBudget">
+    <Key>
+      <PropertyRef Name="HospitalBudgetGUID" />
+    </Key>
+    <Property Name="HospitalBudgetGUID" Type="Guid" Nullable="false" />
+    <Property Name="HospitalGUID" Type="Guid" />
+    <Property Name="FromDate" Type="DateTime" Precision="3" />
+    <Property Name="ToDate" Type="DateTime" Precision="3" />
+    <Property Name="BudgetValue" Type="Double" />
+    <Property Name="BudgetExtend" Type="Double" />
+    <Property Name="CreatedBy" Type="Guid" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="Guid" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="codeHospital" Relationship="Self.FK_codeHospitalBudget_HospitalGUID" FromRole="codeHospitalBudget" ToRole="codeHospital" />
+    <NavigationProperty Name="userAccount" Relationship="Self.FK_codeHospitalBudget_CreatedBy" FromRole="codeHospitalBudget" ToRole="userAccount" />
+    <NavigationProperty Name="userAccount1" Relationship="Self.FK_codeHospitalBudget_ModifiedBy" FromRole="codeHospitalBudget" ToRole="userAccount" />
+  </EntityType>
+  <EntityType Name="codeHospitalLanguage">
+    <Key>
+      <PropertyRef Name="HospitalLanguageGUID" />
+    </Key>
+    <Property Name="HospitalLanguageGUID" Type="Guid" Nullable="false" />
+    <Property Name="HospitalGUID" Type="Guid" />
+    <Property Name="LanaguageID" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="codeHospital" Relationship="Self.FK_codeHospitalLanguage_HospitalGUID" FromRole="codeHospitalLanguage" ToRole="codeHospital" />
+    <NavigationProperty Name="codeLanguage" Relationship="Self.FK_codeHospitalLanguage_LangugaeID" FromRole="codeHospitalLanguage" ToRole="codeLanguage" />
+  </EntityType>
+  <EntityType Name="codeHospitalType">
+    <Key>
+      <PropertyRef Name="HospitalTypeGUID" />
+    </Key>
+    <Property Name="HospitalTypeGUID" Type="Guid" Nullable="false" />
+    <Property Name="HospitalTypeDescription" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="codeHospitals" Relationship="Self.FK_codeHospital_HospitalTypeGUID" FromRole="codeHospitalType" ToRole="codeHospital" />
+    <NavigationProperty Name="codeHospitalTypeLanguages" Relationship="Self.FK_codeHospitalType_HospitalTypeGUID" FromRole="codeHospitalType" ToRole="codeHospitalTypeLanguage" />
+  </EntityType>
+  <EntityType Name="codeHospitalTypeLanguage">
+    <Key>
+      <PropertyRef Name="HospitalTypeLanguageGUID" />
+    </Key>
+    <Property Name="HospitalTypeLanguageGUID" Type="Guid" Nullable="false" />
+    <Property Name="HospitalTypeGUID" Type="Guid" />
+    <Property Name="LanaguageID" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="codeHospitalType" Relationship="Self.FK_codeHospitalType_HospitalTypeGUID" FromRole="codeHospitalTypeLanguage" ToRole="codeHospitalType" />
+    <NavigationProperty Name="codeLanguage" Relationship="Self.FK_codeHospitalTypeLanguage_LangugaeID" FromRole="codeHospitalTypeLanguage" ToRole="codeLanguage" />
+  </EntityType>
+  <EntityType Name="codeICDTen">
+    <Key>
+      <PropertyRef Name="ICDTenGUID" />
+    </Key>
+    <Property Name="ICDTenGUID" Type="Guid" Nullable="false" />
+    <Property Name="ICDTenDescription" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="codeICDTenLanguages" Relationship="Self.FK_codeICDTenLanguage_MedicalProcedureGUID" FromRole="codeICDTen" ToRole="codeICDTenLanguage" />
+    <NavigationProperty Name="dataReferralAcceptanceDiagnosis" Relationship="Self.FK_dataReferralAcceptanceDiagnosis_ICDTenGUID" FromRole="codeICDTen" ToRole="dataReferralAcceptanceDiagnosis" />
+    <NavigationProperty Name="dataReferralDiagnosis" Relationship="Self.FK_dataReferralDiagnosis_ICDTenGUID" FromRole="codeICDTen" ToRole="dataReferralDiagnosis" />
+  </EntityType>
+  <EntityType Name="codeICDTenLanguage">
+    <Key>
+      <PropertyRef Name="ICDTenGUIDLanguageGUID" />
+    </Key>
+    <Property Name="ICDTenGUIDLanguageGUID" Type="Guid" Nullable="false" />
+    <Property Name="ICDTenGUID" Type="Guid" />
+    <Property Name="LanaguageID" Type="Int32" />
+    <Property Name="ICDTencodeName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <NavigationProperty Name="codeICDTen" Relationship="Self.FK_codeICDTenLanguage_MedicalProcedureGUID" FromRole="codeICDTenLanguage" ToRole="codeICDTen" />
+    <NavigationProperty Name="codeLanguage" Relationship="Self.codeICDTenLanguage_Fk_LangugaeID" FromRole="codeICDTenLanguage" ToRole="codeLanguage" />
+  </EntityType>
+  <EntityType Name="codeLanguage">
+    <Key>
+      <PropertyRef Name="LanaguageID" />
+    </Key>
+    <Property Name="LanaguageID" Type="Int32" Nullable="false" />
+    <Property Name="LanguageISO2" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="LanguageISO3" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="LanguageNameEN" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="LanguageNameLocal" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="Direction" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="SortID" Type="Int32" />
+    <NavigationProperty Name="codeHospitalLanguages" Relationship="Self.FK_codeHospitalLanguage_LangugaeID" FromRole="codeLanguage" ToRole="codeHospitalLanguage" />
+    <NavigationProperty Name="codeHospitalTypeLanguages" Relationship="Self.FK_codeHospitalTypeLanguage_LangugaeID" FromRole="codeLanguage" ToRole="codeHospitalTypeLanguage" />
+    <NavigationProperty Name="codeICDTenLanguages" Relationship="Self.codeICDTenLanguage_Fk_LangugaeID" FromRole="codeLanguage" ToRole="codeICDTenLanguage" />
+    <NavigationProperty Name="codePartyLanguages" Relationship="Self.FK_codeCorporationLanguage_LangugaeID" FromRole="codeLanguage" ToRole="codePartyLanguage" />
+    <NavigationProperty Name="codeLocationLanguages" Relationship="Self.FK_CodeICDTenLanguage_LangugaeID" FromRole="codeLanguage" ToRole="codeLocationLanguage" />
+    <NavigationProperty Name="codeMedicalProcedureLanguages" Relationship="Self.Fk_codeMedicalProcedureLanguage_LangugaeID" FromRole="codeLanguage" ToRole="codeMedicalProcedureLanguage" />
+    <NavigationProperty Name="codePartyTypeLanguages" Relationship="Self.FK_codePartyTypeLanguage_LangugaeID" FromRole="codeLanguage" ToRole="codePartyTypeLanguage" />
+    <NavigationProperty Name="codePatientStatusLanguages" Relationship="Self.Fk_codePatientStatusLanguage_LangugaeID" FromRole="codeLanguage" ToRole="codePatientStatusLanguage" />
+    <NavigationProperty Name="codePatientTypeLanguages" Relationship="Self.FK_codePatientTypeLanguage_LangugaeID" FromRole="codeLanguage" ToRole="codePatientTypeLanguage" />
+    <NavigationProperty Name="codeReferralStatusLanguages" Relationship="Self.FK_CodeReferralStatusLanguage_LangugaeID" FromRole="codeLanguage" ToRole="codeReferralStatusLanguage" />
+    <NavigationProperty Name="codeReferralTypeLanguages" Relationship="Self.FK_codeReferralTypeLanguage_LangugaeID" FromRole="codeLanguage" ToRole="codeReferralTypeLanguage" />
+  </EntityType>
+  <EntityType Name="codeLocation">
+    <Key>
+      <PropertyRef Name="LocationGUID" />
+    </Key>
+    <Property Name="LocationGUID" Type="Guid" Nullable="false" />
+    <Property Name="LocationParentGUID" Type="Guid" />
+    <Property Name="Locationlevel" Type="Int32" />
+    <Property Name="Latidude" Type="Double" />
+    <Property Name="Longtiude" Type="Double" />
+    <Property Name="LocationCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="codeLocationLanguages" Relationship="Self.FK_CodeCountryLanguage_CountryGUID" FromRole="codeLocation" ToRole="codeLocationLanguage" />
+    <NavigationProperty Name="codeLocation1" Relationship="Self.FK_codeLocation_codeLocation" FromRole="codeLocation" ToRole="codeLocation1" />
+    <NavigationProperty Name="codeLocation2" Relationship="Self.FK_codeLocation_codeLocation" FromRole="codeLocation1" ToRole="codeLocation" />
+    <NavigationProperty Name="codeParties" Relationship="Self.FK_codeParty_CountryGUID" FromRole="codeLocation" ToRole="codeParty" />
+    <NavigationProperty Name="dataPatients" Relationship="Self.FK_dataPatient_OrigionCountry" FromRole="codeLocation" ToRole="dataPatient" />
+  </EntityType>
+  <EntityType Name="codeLocationLanguage">
+    <Key>
+      <PropertyRef Name="LocationLanguageGUID" />
+    </Key>
+    <Property Name="LocationLanguageGUID" Type="Guid" Nullable="false" />
+    <Property Name="LocationGUID" Type="Guid" />
+    <Property Name="LanaguageID" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="codeLanguage" Relationship="Self.FK_CodeICDTenLanguage_LangugaeID" FromRole="codeLocationLanguage" ToRole="codeLanguage" />
+    <NavigationProperty Name="codeLocation" Relationship="Self.FK_CodeCountryLanguage_CountryGUID" FromRole="codeLocationLanguage" ToRole="codeLocation" />
+  </EntityType>
+  <EntityType Name="codeMedicalProcedure">
+    <Key>
+      <PropertyRef Name="MedicalProcedureGUID" />
+    </Key>
+    <Property Name="MedicalProcedureGUID" Type="Guid" Nullable="false" />
+    <Property Name="MedicalProcedureDescription" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ParentGUID" Type="Guid" />
+    <NavigationProperty Name="codeMedicalProcedureLanguages" Relationship="Self.FK_codeMedicalProcedureLanguageMedicalProcedureGUID" FromRole="codeMedicalProcedure" ToRole="codeMedicalProcedureLanguage" />
+    <NavigationProperty Name="dataMedicalProcedureHospitalCosts" Relationship="Self.FK_dataMedicalProcedureHospitalCost_MedicalProcedureGUID" FromRole="codeMedicalProcedure" ToRole="dataMedicalProcedureHospitalCost" />
+    <NavigationProperty Name="dataReferralDetails" Relationship="Self.FK_dataReferralDetail_MedicalProcedureGUID" FromRole="codeMedicalProcedure" ToRole="dataReferralDetail" />
+    <NavigationProperty Name="dataReferralAcceptanceProcedures" Relationship="Self.FK_dataReferralProcedure_MedicalProcedureGUID" FromRole="codeMedicalProcedure" ToRole="dataReferralAcceptanceProcedure" />
+    <NavigationProperty Name="codeMedicalProcedure1" Relationship="Self.FK_MedicalProcedureGUID_ParentGUID" FromRole="codeMedicalProcedure" ToRole="codeMedicalProcedure1" />
+    <NavigationProperty Name="codeMedicalProcedure2" Relationship="Self.FK_MedicalProcedureGUID_ParentGUID" FromRole="codeMedicalProcedure1" ToRole="codeMedicalProcedure" />
+  </EntityType>
+  <EntityType Name="codeMedicalProcedureLanguage">
+    <Key>
+      <PropertyRef Name="MedicalProcedureLanguageGUID" />
+    </Key>
+    <Property Name="MedicalProcedureLanguageGUID" Type="Guid" Nullable="false" />
+    <Property Name="MedicalProcedureGUID" Type="Guid" />
+    <Property Name="LanaguageID" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <NavigationProperty Name="codeLanguage" Relationship="Self.Fk_codeMedicalProcedureLanguage_LangugaeID" FromRole="codeMedicalProcedureLanguage" ToRole="codeLanguage" />
+    <NavigationProperty Name="codeMedicalProcedure" Relationship="Self.FK_codeMedicalProcedureLanguageMedicalProcedureGUID" FromRole="codeMedicalProcedureLanguage" ToRole="codeMedicalProcedure" />
+  </EntityType>
+  <EntityType Name="codeOrgnization">
+    <Key>
+      <PropertyRef Name="OrgnizationGUID" />
+    </Key>
+    <Property Name="OrgnizationGUID" Type="Guid" Nullable="false" />
+    <Property Name="OrgnizationDescription" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="PartyGUID" Type="Guid" />
+    <NavigationProperty Name="codeParty" Relationship="Self.FK_codeOrgnization_CorporationGUID" FromRole="codeOrgnization" ToRole="codeParty" />
+  </EntityType>
+  <EntityType Name="codePartner">
+    <Key>
+      <PropertyRef Name="PartnerGUID" />
+    </Key>
+    <Property Name="PartnerGUID" Type="Guid" Nullable="false" />
+    <Property Name="PartnerDescription" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="PartyGUID" Type="Guid" />
+    <NavigationProperty Name="codeParty" Relationship="Self.FK_codePartner_CorporationGUID" FromRole="codePartner" ToRole="codeParty" />
+  </EntityType>
+  <EntityType Name="codeParty">
+    <Key>
+      <PropertyRef Name="PartyGUID" />
+    </Key>
+    <Property Name="PartyGUID" Type="Guid" Nullable="false" />
+    <Property Name="PartyTypeGUID" Type="Guid" />
+    <Property Name="PartyDescription" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="LocationGUID" Type="Guid" />
+    <NavigationProperty Name="codeHospitals" Relationship="Self.FK_codeHospital_CorporationGUID" FromRole="codeParty" ToRole="codeHospital" />
+    <NavigationProperty Name="codeLocation" Relationship="Self.FK_codeParty_CountryGUID" FromRole="codeParty" ToRole="codeLocation" />
+    <NavigationProperty Name="codeOrgnizations" Relationship="Self.FK_codeOrgnization_CorporationGUID" FromRole="codeParty" ToRole="codeOrgnization" />
+    <NavigationProperty Name="codePartners" Relationship="Self.FK_codePartner_CorporationGUID" FromRole="codeParty" ToRole="codePartner" />
+    <NavigationProperty Name="codePartyLanguages" Relationship="Self.FK_codeCorporationLanguage_CorporationGUID" FromRole="codeParty" ToRole="codePartyLanguage" />
+    <NavigationProperty Name="codePartyType" Relationship="Self.FK_codeParty_PartyTypeGUID" FromRole="codeParty" ToRole="codePartyType" />
+    <NavigationProperty Name="dataReferrals" Relationship="Self.FK_dataReferral_ReferralSourceGUID" FromRole="codeParty" ToRole="dataReferral" />
+    <NavigationProperty Name="userAccounts" Relationship="Self.FK_EmployeeJobTitle_PartyGUID" FromRole="codeParty" ToRole="userAccount" />
+    <NavigationProperty Name="userParties" Relationship="Self.FK_userParty_PartyGUID" FromRole="codeParty" ToRole="userParty" />
+  </EntityType>
+  <EntityType Name="codePartyLanguage">
+    <Key>
+      <PropertyRef Name="PartyLanguageGUID" />
+    </Key>
+    <Property Name="PartyLanguageGUID" Type="Guid" Nullable="false" />
+    <Property Name="PartyGUID" Type="Guid" />
+    <Property Name="LanaguageID" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="codeLanguage" Relationship="Self.FK_codeCorporationLanguage_LangugaeID" FromRole="codePartyLanguage" ToRole="codeLanguage" />
+    <NavigationProperty Name="codeParty" Relationship="Self.FK_codeCorporationLanguage_CorporationGUID" FromRole="codePartyLanguage" ToRole="codeParty" />
+  </EntityType>
+  <EntityType Name="codePartyType">
+    <Key>
+      <PropertyRef Name="PartyTypeGUID" />
+    </Key>
+    <Property Name="PartyTypeGUID" Type="Guid" Nullable="false" />
+    <Property Name="PartyTypeDescription" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="codeParties" Relationship="Self.FK_codeParty_PartyTypeGUID" FromRole="codePartyType" ToRole="codeParty" />
+    <NavigationProperty Name="codePartyTypeLanguages" Relationship="Self.FK_codePartyTypeLanguage_PartyTypeGUID" FromRole="codePartyType" ToRole="codePartyTypeLanguage" />
+  </EntityType>
+  <EntityType Name="codePartyTypeLanguage">
+    <Key>
+      <PropertyRef Name="PartyTypeLanguageGUID" />
+    </Key>
+    <Property Name="PartyTypeLanguageGUID" Type="Guid" Nullable="false" />
+    <Property Name="PartyTypeGUID" Type="Guid" />
+    <Property Name="LanaguageID" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="codeLanguage" Relationship="Self.FK_codePartyTypeLanguage_LangugaeID" FromRole="codePartyTypeLanguage" ToRole="codeLanguage" />
+    <NavigationProperty Name="codePartyType" Relationship="Self.FK_codePartyTypeLanguage_PartyTypeGUID" FromRole="codePartyTypeLanguage" ToRole="codePartyType" />
+  </EntityType>
+  <EntityType Name="codePatientStatu">
+    <Key>
+      <PropertyRef Name="PatientStatusGUID" />
+    </Key>
+    <Property Name="PatientStatusGUID" Type="Guid" Nullable="false" />
+    <Property Name="PatientStatusDescription" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="codePatientStatusLanguages" Relationship="Self.FK_codePatientStatusLanguage_PatientStatusGUID" FromRole="codePatientStatus" ToRole="codePatientStatusLanguage" />
+    <NavigationProperty Name="dataReferralAcceptances" Relationship="Self.FK_dataHospitalAcceptance_PatientStatusGUID" FromRole="codePatientStatus" ToRole="dataReferralAcceptance" />
+  </EntityType>
+  <EntityType Name="codePatientStatusLanguage">
+    <Key>
+      <PropertyRef Name="MedicalProcedureLanguageGUID" />
+    </Key>
+    <Property Name="MedicalProcedureLanguageGUID" Type="Guid" Nullable="false" />
+    <Property Name="PatientStatusGUID" Type="Guid" />
+    <Property Name="LanaguageID" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <NavigationProperty Name="codeLanguage" Relationship="Self.Fk_codePatientStatusLanguage_LangugaeID" FromRole="codePatientStatusLanguage" ToRole="codeLanguage" />
+    <NavigationProperty Name="codePatientStatu" Relationship="Self.FK_codePatientStatusLanguage_PatientStatusGUID" FromRole="codePatientStatusLanguage" ToRole="codePatientStatus" />
+  </EntityType>
+  <EntityType Name="codePatientType">
+    <Key>
+      <PropertyRef Name="PatientTypeGUID" />
+    </Key>
+    <Property Name="PatientTypeGUID" Type="Guid" Nullable="false" />
+    <Property Name="PatientTypeDescription" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="codePatientTypeLanguages" Relationship="Self.FK_codePatientTypeLanguage_PatientTypeGUID" FromRole="codePatientType" ToRole="codePatientTypeLanguage" />
+    <NavigationProperty Name="dataPatients" Relationship="Self.FK_dataPatients_PatientTypeGUID" FromRole="codePatientType" ToRole="dataPatient" />
+  </EntityType>
+  <EntityType Name="codePatientTypeLanguage">
+    <Key>
+      <PropertyRef Name="PatientTypeLangugeGUID" />
+    </Key>
+    <Property Name="PatientTypeLangugeGUID" Type="Guid" Nullable="false" />
+    <Property Name="PatientTypeGUID" Type="Guid" />
+    <Property Name="LanaguageID" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="codeLanguage" Relationship="Self.FK_codePatientTypeLanguage_LangugaeID" FromRole="codePatientTypeLanguage" ToRole="codeLanguage" />
+    <NavigationProperty Name="codePatientType" Relationship="Self.FK_codePatientTypeLanguage_PatientTypeGUID" FromRole="codePatientTypeLanguage" ToRole="codePatientType" />
+  </EntityType>
+  <EntityType Name="codeReferralStatu">
+    <Key>
+      <PropertyRef Name="ReferralStatusGUID" />
+    </Key>
+    <Property Name="ReferralStatusGUID" Type="Guid" Nullable="false" />
+    <Property Name="ReferralStatusDescription" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="codeReferralStatusLanguages" Relationship="Self.FK_CodeReferralStatusLanguage_ReferralStatusGUID" FromRole="codeReferralStatus" ToRole="codeReferralStatusLanguage" />
+    <NavigationProperty Name="dataReferrals" Relationship="Self.FK_dataReferral_ReferralStatusGUID" FromRole="codeReferralStatus" ToRole="dataReferral" />
+  </EntityType>
+  <EntityType Name="codeReferralStatusLanguage">
+    <Key>
+      <PropertyRef Name="ReferralStatusLangugeGUID" />
+    </Key>
+    <Property Name="ReferralStatusLangugeGUID" Type="Guid" Nullable="false" />
+    <Property Name="ReferralStatusGUID" Type="Guid" />
+    <Property Name="LanaguageID" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="codeLanguage" Relationship="Self.FK_CodeReferralStatusLanguage_LangugaeID" FromRole="codeReferralStatusLanguage" ToRole="codeLanguage" />
+    <NavigationProperty Name="codeReferralStatu" Relationship="Self.FK_CodeReferralStatusLanguage_ReferralStatusGUID" FromRole="codeReferralStatusLanguage" ToRole="codeReferralStatus" />
+  </EntityType>
+  <EntityType Name="codeReferralType">
+    <Key>
+      <PropertyRef Name="ReferralTypeGUID" />
+    </Key>
+    <Property Name="ReferralTypeGUID" Type="Guid" Nullable="false" />
+    <Property Name="ReferralTypeDescription" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="codeReferralTypeLanguages" Relationship="Self.FK_CodeReferralTypeLanguage_ReferralTypeGUID" FromRole="codeReferralType" ToRole="codeReferralTypeLanguage" />
+    <NavigationProperty Name="dataReferrals" Relationship="Self.FK_dataReferral_ReferralTypeGUID" FromRole="codeReferralType" ToRole="dataReferral" />
+  </EntityType>
+  <EntityType Name="codeReferralTypeLanguage">
+    <Key>
+      <PropertyRef Name="ReferralTypeLangugeGUID" />
+    </Key>
+    <Property Name="ReferralTypeLangugeGUID" Type="Guid" Nullable="false" />
+    <Property Name="ReferralTypeGUID" Type="Guid" />
+    <Property Name="LanaguageID" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="codeLanguage" Relationship="Self.FK_codeReferralTypeLanguage_LangugaeID" FromRole="codeReferralTypeLanguage" ToRole="codeLanguage" />
+    <NavigationProperty Name="codeReferralType" Relationship="Self.FK_CodeReferralTypeLanguage_ReferralTypeGUID" FromRole="codeReferralTypeLanguage" ToRole="codeReferralType" />
+  </EntityType>
+  <EntityType Name="dataMedicalProcedureHospitalCost">
+    <Key>
+      <PropertyRef Name="MedicalProcedureHospitalCostGUID" />
+    </Key>
+    <Property Name="MedicalProcedureHospitalCostGUID" Type="Guid" Nullable="false" />
+    <Property Name="MedicalProcedureGUID" Type="Guid" />
+    <Property Name="HospitalGUID" Type="Guid" />
+    <Property Name="Cost" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="ActivationDate" Type="DateTime" Precision="3" />
+    <Property Name="DeActionDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Guid" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="Guid" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="codeHospital" Relationship="Self.FK_dataMedicalProcedureHospitalCost_HospitalGUID" FromRole="dataMedicalProcedureHospitalCost" ToRole="codeHospital" />
+    <NavigationProperty Name="codeMedicalProcedure" Relationship="Self.FK_dataMedicalProcedureHospitalCost_MedicalProcedureGUID" FromRole="dataMedicalProcedureHospitalCost" ToRole="codeMedicalProcedure" />
+    <NavigationProperty Name="userAccount" Relationship="Self.FK_dataMedicalProcedureHospitalCost_CreatedBy" FromRole="dataMedicalProcedureHospitalCost" ToRole="userAccount" />
+    <NavigationProperty Name="userAccount1" Relationship="Self.FK_dataMedicalProcedureHospitalCost_ModifiedBy" FromRole="dataMedicalProcedureHospitalCost" ToRole="userAccount" />
+  </EntityType>
+  <EntityType Name="dataPatient">
+    <Key>
+      <PropertyRef Name="PatientGUID" />
+    </Key>
+    <Property Name="PatientGUID" Type="Guid" Nullable="false" />
+    <Property Name="IndivdualGUID" Type="Guid" />
+    <Property Name="CaseNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IndividualNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PatientTypeGUID" Type="Guid" />
+    <Property Name="OrigionCountryGUID" Type="Guid" />
+    <Property Name="FirstName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="MiddleName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="MotherName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="BirthDate" Type="DateTime" Precision="3" />
+    <Property Name="VerbalName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Phones" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="PatientAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="RegistrationDate" Type="DateTime" Precision="3" />
+    <Property Name="RegistrationNumber" Type="Int32" />
+    <Property Name="CreatedBy" Type="Guid" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="Guid" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="codeLocation" Relationship="Self.FK_dataPatient_OrigionCountry" FromRole="dataPatient" ToRole="codeLocation" />
+    <NavigationProperty Name="codePatientType" Relationship="Self.FK_dataPatients_PatientTypeGUID" FromRole="dataPatient" ToRole="codePatientType" />
+    <NavigationProperty Name="userAccount" Relationship="Self.FK_dataPatient_CreatedBy" FromRole="dataPatient" ToRole="userAccount" />
+    <NavigationProperty Name="userAccount1" Relationship="Self.FK_dataPatient_ModifiedBy" FromRole="dataPatient" ToRole="userAccount" />
+    <NavigationProperty Name="dataReferrals" Relationship="Self.FK_dataReferral_PatientGUID" FromRole="dataPatient" ToRole="dataReferral" />
+  </EntityType>
+  <EntityType Name="dataReferral">
+    <Key>
+      <PropertyRef Name="ReferralGUID" />
+    </Key>
+    <Property Name="ReferralGUID" Type="Guid" Nullable="false" />
+    <Property Name="ReferralDate" Type="DateTime" Precision="3" />
+    <Property Name="ReferralNumber" Type="Int32" />
+    <Property Name="ReferralSourceGUID" Type="Guid" />
+    <Property Name="HospitalGUID" Type="Guid" />
+    <Property Name="PatientGUID" Type="Guid" />
+    <Property Name="ReferralTypeGUID" Type="Guid" />
+    <Property Name="ReferralStatusGUID" Type="Guid" />
+    <Property Name="ExpectedCost" Type="Double" />
+    <Property Name="ApprovedCost" Type="Double" />
+    <Property Name="FinalCost" Type="Double" />
+    <Property Name="CommitteComments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Guid" />
+    <Property Name="ModifiedBy" Type="Guid" />
+    <NavigationProperty Name="codeHospital" Relationship="Self.FK_dataReferral_HospitalGUID" FromRole="dataReferral" ToRole="codeHospital" />
+    <NavigationProperty Name="codeParty" Relationship="Self.FK_dataReferral_ReferralSourceGUID" FromRole="dataReferral" ToRole="codeParty" />
+    <NavigationProperty Name="codeReferralStatu" Relationship="Self.FK_dataReferral_ReferralStatusGUID" FromRole="dataReferral" ToRole="codeReferralStatus" />
+    <NavigationProperty Name="codeReferralType" Relationship="Self.FK_dataReferral_ReferralTypeGUID" FromRole="dataReferral" ToRole="codeReferralType" />
+    <NavigationProperty Name="dataPatient" Relationship="Self.FK_dataReferral_PatientGUID" FromRole="dataReferral" ToRole="dataPatient" />
+    <NavigationProperty Name="dataReferralAcceptances" Relationship="Self.FK_dataHospitalAcceptance_ReferralGUID" FromRole="dataReferral" ToRole="dataReferralAcceptance" />
+    <NavigationProperty Name="userAccount" Relationship="Self.FK_dataReferral_CreatedBy" FromRole="dataReferral" ToRole="userAccount" />
+    <NavigationProperty Name="userAccount1" Relationship="Self.FK_dataReferral_ModifiedBy" FromRole="dataReferral" ToRole="userAccount" />
+    <NavigationProperty Name="dataReferralCorrespondences" Relationship="Self.FK_dataReferralCorrespondence_ReferralGUID" FromRole="dataReferral" ToRole="dataReferralCorrespondence" />
+    <NavigationProperty Name="dataReferralDetails" Relationship="Self.FK_dataReferralDetail_ReferralGUID" FromRole="dataReferral" ToRole="dataReferralDetail" />
+    <NavigationProperty Name="dataReferralDiagnosis" Relationship="Self.FK_dataReferralDiagnosis_ReferralGUID" FromRole="dataReferral" ToRole="dataReferralDiagnosis" />
+  </EntityType>
+  <EntityType Name="dataReferralAcceptance">
+    <Key>
+      <PropertyRef Name="ReferralAcceptanceGUID" />
+    </Key>
+    <Property Name="ReferralAcceptanceGUID" Type="Guid" Nullable="false" />
+    <Property Name="ReferralGUID" Type="Guid" />
+    <Property Name="EntryDate" Type="DateTime" Precision="3" />
+    <Property Name="DepartureDate" Type="DateTime" Precision="3" />
+    <Property Name="IsWithStay" Type="Boolean" />
+    <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="Guid" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="Guid" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="PatientStatusGUID" Type="Guid" />
+    <NavigationProperty Name="codePatientStatu" Relationship="Self.FK_dataHospitalAcceptance_PatientStatusGUID" FromRole="dataReferralAcceptance" ToRole="codePatientStatus" />
+    <NavigationProperty Name="dataReferral" Relationship="Self.FK_dataHospitalAcceptance_ReferralGUID" FromRole="dataReferralAcceptance" ToRole="dataReferral" />
+    <NavigationProperty Name="userAccount" Relationship="Self.FK_dataReferralAcceptance_CreatedBy" FromRole="dataReferralAcceptance" ToRole="userAccount" />
+    <NavigationProperty Name="userAccount1" Relationship="Self.FK_dataReferralAcceptance_ModifiedBy" FromRole="dataReferralAcceptance" ToRole="userAccount" />
+    <NavigationProperty Name="dataReferralAcceptanceDiagnosis" Relationship="Self.FK_dataReferralAcceptanceDiagnosis_ReferralGUID" FromRole="dataReferralAcceptance" ToRole="dataReferralAcceptanceDiagnosis" />
+    <NavigationProperty Name="dataReferralAcceptanceProcedures" Relationship="Self.FK_dataReferralProcedure_ReferralGUID" FromRole="dataReferralAcceptance" ToRole="dataReferralAcceptanceProcedure" />
+  </EntityType>
+  <EntityType Name="dataReferralAcceptanceDiagnosi">
+    <Key>
+      <PropertyRef Name="ReferralAcceptanceDiagnosisGUID" />
+    </Key>
+    <Property Name="ReferralAcceptanceDiagnosisGUID" Type="Guid" Nullable="false" />
+    <Property Name="ReferralAcceptanceGUID" Type="Guid" />
+    <Property Name="ICDTenGUID" Type="Guid" />
+    <Property Name="CreatedBy" Type="Guid" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="Guid" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="codeICDTen" Relationship="Self.FK_dataReferralAcceptanceDiagnosis_ICDTenGUID" FromRole="dataReferralAcceptanceDiagnosis" ToRole="codeICDTen" />
+    <NavigationProperty Name="dataReferralAcceptance" Relationship="Self.FK_dataReferralAcceptanceDiagnosis_ReferralGUID" FromRole="dataReferralAcceptanceDiagnosis" ToRole="dataReferralAcceptance" />
+    <NavigationProperty Name="userAccount" Relationship="Self.FK_dataReferralAcceptanceDiagnosis_CreatedDate" FromRole="dataReferralAcceptanceDiagnosis" ToRole="userAccount" />
+    <NavigationProperty Name="userAccount1" Relationship="Self.FK_dataReferralAcceptanceDiagnosis_ModifiedBy" FromRole="dataReferralAcceptanceDiagnosis" ToRole="userAccount" />
+  </EntityType>
+  <EntityType Name="dataReferralAcceptanceProcedure">
+    <Key>
+      <PropertyRef Name="ReferralAcceptanceProcedureGUID" />
+    </Key>
+    <Property Name="ReferralAcceptanceProcedureGUID" Type="Guid" Nullable="false" />
+    <Property Name="ReferralAcceptanceGUID" Type="Guid" />
+    <Property Name="MedicalProcedureGUID" Type="Guid" />
+    <Property Name="IsApproved" Type="Boolean" />
+    <Property Name="UNHCRComments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HospitalCost" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="ApprovedCost" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="ProcedureDate" Type="DateTime" Precision="3" />
+    <Property Name="DoctorName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="HospitalComments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="Guid" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="Guid" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="codeMedicalProcedure" Relationship="Self.FK_dataReferralProcedure_MedicalProcedureGUID" FromRole="dataReferralAcceptanceProcedure" ToRole="codeMedicalProcedure" />
+    <NavigationProperty Name="dataReferralAcceptance" Relationship="Self.FK_dataReferralProcedure_ReferralGUID" FromRole="dataReferralAcceptanceProcedure" ToRole="dataReferralAcceptance" />
+    <NavigationProperty Name="userAccount" Relationship="Self.FK_dataReferralProcedure_CreatedBy" FromRole="dataReferralAcceptanceProcedure" ToRole="userAccount" />
+    <NavigationProperty Name="userAccount1" Relationship="Self.FK_dataReferralProcedures_ModifiedBy" FromRole="dataReferralAcceptanceProcedure" ToRole="userAccount" />
+  </EntityType>
+  <EntityType Name="dataReferralCorrespondence">
+    <Key>
+      <PropertyRef Name="ReferralCorrespondenceGUID" />
+    </Key>
+    <Property Name="ReferralCorrespondenceGUID" Type="Guid" Nullable="false" />
+    <Property Name="ReferralGUID" Type="Guid" />
+    <Property Name="FromUserGUID" Type="Guid" />
+    <Property Name="ToUserGUID" Type="Guid" />
+    <Property Name="SendDate" Type="DateTime" Precision="3" />
+    <Property Name="RecieveDate" Type="DateTime" Precision="3" />
+    <Property Name="CorrespondenceTitle" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CorrespondenceText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="Guid" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="Guid" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="dataReferral" Relationship="Self.FK_dataReferralCorrespondence_ReferralGUID" FromRole="dataReferralCorrespondence" ToRole="dataReferral" />
+    <NavigationProperty Name="userAccount" Relationship="Self.FK_dataReferralCorrespondence_CreatedBy" FromRole="dataReferralCorrespondence" ToRole="userAccount" />
+    <NavigationProperty Name="userAccount1" Relationship="Self.FK_dataReferralCorrespondence_fromUserGUID" FromRole="dataReferralCorrespondence" ToRole="userAccount" />
+    <NavigationProperty Name="userAccount2" Relationship="Self.FK_dataReferralCorrespondence_ModifiedBy" FromRole="dataReferralCorrespondence" ToRole="userAccount" />
+    <NavigationProperty Name="userAccount3" Relationship="Self.FK_dataReferralCorrespondence_toUserGUID" FromRole="dataReferralCorrespondence" ToRole="userAccount" />
+    <NavigationProperty Name="dataReferralCorrespondenceReceipents" Relationship="Self.FK_dataReferralCorrespondenceReceipent_ReferralCorrespondenceGUID" FromRole="dataReferralCorrespondence" ToRole="dataReferralCorrespondenceReceipent" />
+  </EntityType>
+  <EntityType Name="dataReferralCorrespondenceReceipent">
+    <Key>
+      <PropertyRef Name="ReferralCorrespondenceReceipent" />
+    </Key>
+    <Property Name="ReferralCorrespondenceReceipent" Type="Guid" Nullable="false" />
+    <Property Name="ReferralCorrespondenceGUID" Type="Guid" />
+    <Property Name="ToUserGUID" Type="Guid" />
+    <NavigationProperty Name="dataReferralCorrespondence" Relationship="Self.FK_dataReferralCorrespondenceReceipent_ReferralCorrespondenceGUID" FromRole="dataReferralCorrespondenceReceipent" ToRole="dataReferralCorrespondence" />
+    <NavigationProperty Name="userAccount" Relationship="Self.FK_dataReferralCorrespondenceReceipent_fromUserGUID" FromRole="dataReferralCorrespondenceReceipent" ToRole="userAccount" />
+  </EntityType>
+  <EntityType Name="dataReferralDetail">
+    <Key>
+      <PropertyRef Name="ReferralDetailGUID" />
+    </Key>
+    <Property Name="ReferralDetailGUID" Type="Guid" Nullable="false" />
+    <Property Name="ReferralGUID" Type="Guid" />
+    <Property Name="MedicalProcedureGUID" Type="Guid" />
+    <Property Name="CreatedBy" Type="Guid" />
+    <Property Name="ModifiedBy" Type="Guid" />
+    <NavigationProperty Name="codeMedicalProcedure" Relationship="Self.FK_dataReferralDetail_MedicalProcedureGUID" FromRole="dataReferralDetail" ToRole="codeMedicalProcedure" />
+    <NavigationProperty Name="dataReferral" Relationship="Self.FK_dataReferralDetail_ReferralGUID" FromRole="dataReferralDetail" ToRole="dataReferral" />
+    <NavigationProperty Name="userAccount" Relationship="Self.FK_dataReferralDetail_CreatedBy" FromRole="dataReferralDetail" ToRole="userAccount" />
+    <NavigationProperty Name="userAccount1" Relationship="Self.FK_dataReferralDetail_ModifiedBy" FromRole="dataReferralDetail" ToRole="userAccount" />
+  </EntityType>
+  <EntityType Name="dataReferralDiagnosi">
+    <Key>
+      <PropertyRef Name="ReferralDiagnosisGUID" />
+    </Key>
+    <Property Name="ReferralDiagnosisGUID" Type="Guid" Nullable="false" />
+    <Property Name="ReferralGUID" Type="Guid" />
+    <Property Name="ICDTenGUID" Type="Guid" />
+    <Property Name="CreatedBy" Type="Guid" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="Guid" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="codeICDTen" Relationship="Self.FK_dataReferralDiagnosis_ICDTenGUID" FromRole="dataReferralDiagnosis" ToRole="codeICDTen" />
+    <NavigationProperty Name="dataReferral" Relationship="Self.FK_dataReferralDiagnosis_ReferralGUID" FromRole="dataReferralDiagnosis" ToRole="dataReferral" />
+    <NavigationProperty Name="userAccount" Relationship="Self.FK_dataReferralDiagnosis_CreatedDate" FromRole="dataReferralDiagnosis" ToRole="userAccount" />
+    <NavigationProperty Name="userAccount1" Relationship="Self.FK_dataReferralDiagnosis_ModifiedBy" FromRole="dataReferralDiagnosis" ToRole="userAccount" />
+  </EntityType>
+  <EntityType Name="EmployeeJobTitle">
+    <Key>
+      <PropertyRef Name="EmployeeJobTitleGUID" />
+    </Key>
+    <Property Name="EmployeeJobTitleGUID" Type="Guid" Nullable="false" />
+    <Property Name="EmployeeJobTitleDescription" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="userAccounts" Relationship="Self.FK_userDefinition_EmployeeJobTitleGUID" FromRole="EmployeeJobTitle" ToRole="userAccount" />
+  </EntityType>
+  <EntityType Name="proGresIndividual">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CaseNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="IndividualNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="FullName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="OrigionCountry" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="RefugeeStatus" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ProcessStatus" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="sexCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="pa_loc1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="pa_loc2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="IndividualGUID" Type="Guid" />
+  </EntityType>
+  <EntityType Name="userAccount">
+    <Key>
+      <PropertyRef Name="UserGUID" />
+    </Key>
+    <Property Name="UserGUID" Type="Guid" Nullable="false" />
+    <Property Name="EmailAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CurrentPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="isLocked" Type="Boolean" />
+    <Property Name="PartyGUID" Type="Guid" />
+    <Property Name="IsAdmin" Type="Boolean" />
+    <Property Name="userJobTitle" Type="Guid" />
+    <NavigationProperty Name="codeHospitalBudgets" Relationship="Self.FK_codeHospitalBudget_CreatedBy" FromRole="userAccount" ToRole="codeHospitalBudget" />
+    <NavigationProperty Name="codeHospitalBudgets1" Relationship="Self.FK_codeHospitalBudget_ModifiedBy" FromRole="userAccount" ToRole="codeHospitalBudget" />
+    <NavigationProperty Name="codeParty" Relationship="Self.FK_EmployeeJobTitle_PartyGUID" FromRole="userAccount" ToRole="codeParty" />
+    <NavigationProperty Name="dataMedicalProcedureHospitalCosts" Relationship="Self.FK_dataMedicalProcedureHospitalCost_CreatedBy" FromRole="userAccount" ToRole="dataMedicalProcedureHospitalCost" />
+    <NavigationProperty Name="dataMedicalProcedureHospitalCosts1" Relationship="Self.FK_dataMedicalProcedureHospitalCost_ModifiedBy" FromRole="userAccount" ToRole="dataMedicalProcedureHospitalCost" />
+    <NavigationProperty Name="dataPatients" Relationship="Self.FK_dataPatient_CreatedBy" FromRole="userAccount" ToRole="dataPatient" />
+    <NavigationProperty Name="dataPatients1" Relationship="Self.FK_dataPatient_ModifiedBy" FromRole="userAccount" ToRole="dataPatient" />
+    <NavigationProperty Name="dataReferrals" Relationship="Self.FK_dataReferral_CreatedBy" FromRole="userAccount" ToRole="dataReferral" />
+    <NavigationProperty Name="dataReferrals1" Relationship="Self.FK_dataReferral_ModifiedBy" FromRole="userAccount" ToRole="dataReferral" />
+    <NavigationProperty Name="dataReferralAcceptances" Relationship="Self.FK_dataReferralAcceptance_CreatedBy" FromRole="userAccount" ToRole="dataReferralAcceptance" />
+    <NavigationProperty Name="dataReferralAcceptances1" Relationship="Self.FK_dataReferralAcceptance_ModifiedBy" FromRole="userAccount" ToRole="dataReferralAcceptance" />
+    <NavigationProperty Name="dataReferralAcceptanceDiagnosis" Relationship="Self.FK_dataReferralAcceptanceDiagnosis_CreatedDate" FromRole="userAccount" ToRole="dataReferralAcceptanceDiagnosis" />
+    <NavigationProperty Name="dataReferralAcceptanceDiagnosis1" Relationship="Self.FK_dataReferralAcceptanceDiagnosis_ModifiedBy" FromRole="userAccount" ToRole="dataReferralAcceptanceDiagnosis" />
+    <NavigationProperty Name="dataReferralAcceptanceProcedures" Relationship="Self.FK_dataReferralProcedure_CreatedBy" FromRole="userAccount" ToRole="dataReferralAcceptanceProcedure" />
+    <NavigationProperty Name="dataReferralAcceptanceProcedures1" Relationship="Self.FK_dataReferralProcedures_ModifiedBy" FromRole="userAccount" ToRole="dataReferralAcceptanceProcedure" />
+    <NavigationProperty Name="dataReferralCorrespondences" Relationship="Self.FK_dataReferralCorrespondence_CreatedBy" FromRole="userAccount" ToRole="dataReferralCorrespondence" />
+    <NavigationProperty Name="dataReferralCorrespondences1" Relationship="Self.FK_dataReferralCorrespondence_fromUserGUID" FromRole="userAccount" ToRole="dataReferralCorrespondence" />
+    <NavigationProperty Name="dataReferralCorrespondences2" Relationship="Self.FK_dataReferralCorrespondence_ModifiedBy" FromRole="userAccount" ToRole="dataReferralCorrespondence" />
+    <NavigationProperty Name="dataReferralCorrespondences3" Relationship="Self.FK_dataReferralCorrespondence_toUserGUID" FromRole="userAccount" ToRole="dataReferralCorrespondence" />
+    <NavigationProperty Name="dataReferralCorrespondenceReceipents" Relationship="Self.FK_dataReferralCorrespondenceReceipent_fromUserGUID" FromRole="userAccount" ToRole="dataReferralCorrespondenceReceipent" />
+    <NavigationProperty Name="dataReferralDetails" Relationship="Self.FK_dataReferralDetail_CreatedBy" FromRole="userAccount" ToRole="dataReferralDetail" />
+    <NavigationProperty Name="dataReferralDetails1" Relationship="Self.FK_dataReferralDetail_ModifiedBy" FromRole="userAccount" ToRole="dataReferralDetail" />
+    <NavigationProperty Name="dataReferralDiagnosis" Relationship="Self.FK_dataReferralDiagnosis_CreatedDate" FromRole="userAccount" ToRole="dataReferralDiagnosis" />
+    <NavigationProperty Name="dataReferralDiagnosis1" Relationship="Self.FK_dataReferralDiagnosis_ModifiedBy" FromRole="userAccount" ToRole="dataReferralDiagnosis" />
+    <NavigationProperty Name="EmployeeJobTitle" Relationship="Self.FK_userDefinition_EmployeeJobTitleGUID" FromRole="userAccount" ToRole="EmployeeJobTitle" />
+    <NavigationProperty Name="userPermissions" Relationship="Self.FK__userPermi__UserG__14E61A24" FromRole="userAccount" ToRole="userPermission" />
+    <NavigationProperty Name="userParties" Relationship="Self.FK_userParty_UserGUID" FromRole="userAccount" ToRole="userParty" />
+  </EntityType>
+  <EntityType Name="userParty">
+    <Key>
+      <PropertyRef Name="userPartyGUID" />
+    </Key>
+    <Property Name="userPartyGUID" Type="Guid" Nullable="false" />
+    <Property Name="PartyGUID" Type="Guid" />
+    <Property Name="UserGUID" Type="Guid" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="codeParty" Relationship="Self.FK_userParty_PartyGUID" FromRole="userParty" ToRole="codeParty" />
+    <NavigationProperty Name="userAccount" Relationship="Self.FK_userParty_UserGUID" FromRole="userParty" ToRole="userAccount" />
+  </EntityType>
+  <EntityType Name="userPermission">
+    <Key>
+      <PropertyRef Name="PermissionGUID" />
+    </Key>
+    <Property Name="PermissionGUID" Type="Guid" Nullable="false" />
+    <Property Name="UserGUID" Type="Guid" />
+    <Property Name="ActionGUID" Type="Guid" />
+    <Property Name="FactorGUID" Type="Guid" />
+    <Property Name="FactorValue" Type="Guid" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="isActive" Type="Boolean" />
+    <NavigationProperty Name="codeAction" Relationship="Self.FK__userPermi__Actio__22751F6C" FromRole="userPermission" ToRole="codeAction" />
+    <NavigationProperty Name="userAccount" Relationship="Self.FK__userPermi__UserG__14E61A24" FromRole="userPermission" ToRole="userAccount" />
+  </EntityType>
+  <EntityType Name="v_ActionCatgoryFactor">
+    <Key>
+      <PropertyRef Name="ActionGUID" />
+      <PropertyRef Name="ActionName" />
+      <PropertyRef Name="ActionCategoryGUID" />
+      <PropertyRef Name="ActionCategoryName" />
+    </Key>
+    <Property Name="RowId" Type="Int64" />
+    <Property Name="ActionGUID" Type="Guid" Nullable="false" />
+    <Property Name="ActionName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ActionID" Type="Int32" />
+    <Property Name="ActionCategoryGUID" Type="Guid" Nullable="false" />
+    <Property Name="ActionCategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FactorGUID" Type="Guid" />
+    <Property Name="FactorCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="v_FactorValue">
+    <Key>
+      <PropertyRef Name="FactorValueGUID" />
+    </Key>
+    <Property Name="RowId" Type="Int64" />
+    <Property Name="FactorValueGUID" Type="Guid" Nullable="false" />
+    <Property Name="FactorName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="FactorGUID" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="FactorCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ActionCategoryGUID" Type="Guid" />
+  </EntityType>
+  <Association Name="FK__codeActio__Actio__1F98B2C1">
+    <End Role="codeActionCategory" Type="Self.codeActionCategory" Multiplicity="0..1" />
+    <End Role="codeAction" Type="Self.codeAction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="codeActionCategory">
+        <PropertyRef Name="ActionCategoryGUID" />
+      </Principal>
+      <Dependent Role="codeAction">
+        <PropertyRef Name="ActionCategoryGUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__userPermi__Actio__22751F6C">
+    <End Role="codeAction" Type="Self.codeAction" Multiplicity="0..1" />
+    <End Role="userPermission" Type="Self.userPermission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="codeAction">
+        <PropertyRef Name="ActionGUID" />
+      </Principal>
+      <Dependent Role="userPermission">
+        <PropertyRef Name="ActionGUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__codeActio__Actio__1CBC4616">
+    <End Role="codeActionCategory" Type="Self.codeActionCategory" Multiplicity="0..1" />
+    <End Role="codeActionCategoryFactor" Type="Self.codeActionCategoryFactor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="codeActionCategory">
+        <PropertyRef Name="ActionCategoryGUID" />
+      </Principal>
+      <Dependent Role="codeActionCategoryFactor">
+        <PropertyRef Name="ActionCategoryGUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__codeActio__Appli__19DFD96B">
+    <End Role="codeApplication" Type="Self.codeApplication" Multiplicity="0..1" />
+    <End Role="codeActionCategory" Type="Self.codeActionCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="codeApplication">
+        <PropertyRef Name="ApplicationGUID" />
+      </Principal>
+      <Dependent Role="codeActionCategory">
+        <PropertyRef Name="ApplicationGUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_codeHospital_CorporationGUID">
+    <End Role="codeParty" Type="Self.codeParty" Multiplicity="0..1" />
+    <End Role="codeHospital" Type="Self.codeHospital" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="codeParty">
+        <PropertyRef Name="PartyGUID" />
+      </Principal>
+      <Dependent Role="codeHospital">
+        <PropertyRef Name="PartyGUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_codeHospital_HospitalTypeGUID">
+    <End Role="codeHospitalType" Type="Self.codeHospitalType" Multiplicity="0..1" />
+    <End Role="codeHospital" Type="Self.codeHospital" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="codeHospitalType">
+        <PropertyRef Name="HospitalTypeGUID" />
+      </Principal>
+      <Dependent Role="codeHospital">
+        <PropertyRef Name="HospitalTypeGUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_codeHospitalBudget_HospitalGUID">
+    <End Role="codeHospital" Type="Self.codeHospital" Multiplicity="0..1" />
+    <End Role="codeHospitalBudget" Type="Self.codeHospitalBudget" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="codeHospital">
+        <PropertyRef Name="HospitalGUID" />
+      </Principal>
+      <Dependent Role="codeHospitalBudget">
+        <PropertyRef Name="HospitalGUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_codeHospitalLanguage_HospitalGUID">
+    <End Role="codeHospital" Type="Self.codeHospital" Multiplicity="0..1" />
+    <End Role="codeHospitalLanguage" Type="Self.codeHospitalLanguage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="codeHospital">
+        <PropertyRef Name="HospitalGUID" />
+      </Principal>
+      <Dependent Role="codeHospitalLanguage">
+        <PropertyRef Name="HospitalGUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dataMedicalProcedureHospitalCost_HospitalGUID">
+    <End Role="codeHospital" Type="Self.codeHospital" Multiplicity="0..1" />
+    <End Role="dataMedicalProcedureHospitalCost" Type="Self.dataMedicalProcedureHospitalCost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="codeHospital">
+        <PropertyRef Name="HospitalGUID" />
+      </Principal>
+      <Dependent Role="dataMedicalProcedureHospitalCost">
+        <PropertyRef Name="HospitalGUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dataReferral_HospitalGUID">
+    <End Role="codeHospital" Type="Self.codeHospital" Multiplicity="0..1" />
+    <End Role="dataReferral" Type="Self.dataReferral" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="codeHospital">
+        <PropertyRef Name="HospitalGUID" />
+      </Principal>
+      <Dependent Role="dataReferral">
+        <PropertyRef Name="HospitalGUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_codeHospitalBudget_CreatedBy">
+    <End Role="userAccount" Type="Self.userAccount" Multiplicity="0..1" />
+    <End Role="codeHospitalBudget" Type="Self.codeHospitalBudget" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="userAccount">
+        <PropertyRef Name="UserGUID" />
+      </Principal>
+      <Dependent Role="codeHospitalBudget">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_codeHospitalBudget_ModifiedBy">
+    <End Role="userAccount" Type="Self.userAccount" Multiplicity="0..1" />
+    <End Role="codeHospitalBudget" Type="Self.codeHospitalBudget" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="userAccount">
+        <PropertyRef Name="UserGUID" />
+      </Principal>
+      <Dependent Role="codeHospitalBudget">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_codeHospitalLanguage_LangugaeID">
+    <End Role="codeLanguage" Type="Self.codeLanguage" Multiplicity="0..1" />
+    <End Role="codeHospitalLanguage" Type="Self.codeHospitalLanguage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="codeLanguage">
+        <PropertyRef Name="LanaguageID" />
+      </Principal>
+      <Dependent Role="codeHospitalLanguage">
+        <PropertyRef Name="LanaguageID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_codeHospitalType_HospitalTypeGUID">
+    <End Role="codeHospitalType" Type="Self.codeHospitalType" Multiplicity="0..1" />
+    <End Role="codeHospitalTypeLanguage" Type="Self.codeHospitalTypeLanguage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="codeHospitalType">
+        <PropertyRef Name="HospitalTypeGUID" />
+      </Principal>
+      <Dependent Role="codeHospitalTypeLanguage">
+        <PropertyRef Name="HospitalTypeGUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_codeHospitalTypeLanguage_LangugaeID">
+    <End Role="codeLanguage" Type="Self.codeLanguage" Multiplicity="0..1" />
+    <End Role="codeHospitalTypeLanguage" Type="Self.codeHospitalTypeLanguage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="codeLanguage">
+        <PropertyRef Name="LanaguageID" />
+      </Principal>
+      <Dependent Role="codeHospitalTypeLanguage">
+        <PropertyRef Name="LanaguageID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_codeICDTenLanguage_MedicalProcedureGUID">
+    <End Role="codeICDTen" Type="Self.codeICDTen" Multiplicity="0..1" />
+    <End Role="codeICDTenLanguage" Type="Self.codeICDTenLanguage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="codeICDTen">
+        <PropertyRef Name="ICDTenGUID" />
+      </Principal>
+      <Dependent Role="codeICDTenLanguage">
+        <PropertyRef Name="ICDTenGUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dataReferralAcceptanceDiagnosis_ICDTenGUID">
+    <End Role="codeICDTen" Type="Self.codeICDTen" Multiplicity="0..1" />
+    <End Role="dataReferralAcceptanceDiagnosis" Type="Self.dataReferralAcceptanceDiagnosi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="codeICDTen">
+        <PropertyRef Name="ICDTenGUID" />
+      </Principal>
+      <Dependent Role="dataReferralAcceptanceDiagnosis">
+        <PropertyRef Name="ICDTenGUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dataReferralDiagnosis_ICDTenGUID">
+    <End Role="codeICDTen" Type="Self.codeICDTen" Multiplicity="0..1" />
+    <End Role="dataReferralDiagnosis" Type="Self.dataReferralDiagnosi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="codeICDTen">
+        <PropertyRef Name="ICDTenGUID" />
+      </Principal>
+      <Dependent Role="dataReferralDiagnosis">
+        <PropertyRef Name="ICDTenGUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="codeICDTenLanguage_Fk_LangugaeID">
+    <End Role="codeLanguage" Type="Self.codeLanguage" Multiplicity="0..1" />
+    <End Role="codeICDTenLanguage" Type="Self.codeICDTenLanguage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="codeLanguage">
+        <PropertyRef Name="LanaguageID" />
+      </Principal>
+      <Dependent Role="codeICDTenLanguage">
+        <PropertyRef Name="LanaguageID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_codeCorporationLanguage_LangugaeID">
+    <End Role="codeLanguage" Type="Self.codeLanguage" Multiplicity="0..1" />
+    <End Role="codePartyLanguage" Type="Self.codePartyLanguage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="codeLanguage">
+        <PropertyRef Name="LanaguageID" />
+      </Principal>
+      <Dependent Role="codePartyLanguage">
+        <PropertyRef Name="LanaguageID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CodeICDTenLanguage_LangugaeID">
+    <End Role="codeLanguage" Type="Self.codeLanguage" Multiplicity="0..1" />
+    <End Role="codeLocationLanguage" Type="Self.codeLocationLanguage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="codeLanguage">
+        <PropertyRef Name="LanaguageID" />
+      </Principal>
+      <Dependent Role="codeLocationLanguage">
+        <PropertyRef Name="LanaguageID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_codeMedicalProcedureLanguage_LangugaeID">
+    <End Role="codeLanguage" Type="Self.codeLanguage" Multiplicity="0..1" />
+    <End Role="codeMedicalProcedureLanguage" Type="Self.codeMedicalProcedureLanguage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="codeLanguage">
+        <PropertyRef Name="LanaguageID" />
+      </Principal>
+      <Dependent Role="codeMedicalProcedureLanguage">
+        <PropertyRef Name="LanaguageID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_codePartyTypeLanguage_LangugaeID">
+    <End Role="codeLanguage" Type="Self.codeLanguage" Multiplicity="0..1" />
+    <End Role="codePartyTypeLanguage" Type="Self.codePartyTypeLanguage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="codeLanguage">
+        <PropertyRef Name="LanaguageID" />
+      </Principal>
+      <Dependent Role="codePartyTypeLanguage">
+        <PropertyRef Name="LanaguageID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_codePatientStatusLanguage_LangugaeID">
+    <End Role="codeLanguage" Type="Self.codeLanguage" Multiplicity="0..1" />
+    <End Role="codePatientStatusLanguage" Type="Self.codePatientStatusLanguage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="codeLanguage">
+        <PropertyRef Name="LanaguageID" />
+      </Principal>
+      <Dependent Role="codePatientStatusLanguage">
+        <PropertyRef Name="LanaguageID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_codePatientTypeLanguage_LangugaeID">
+    <End Role="codeLanguage" Type="Self.codeLanguage" Multiplicity="0..1" />
+    <End Role="codePatientTypeLanguage" Type="Self.codePatientTypeLanguage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="codeLanguage">
+        <PropertyRef Name="LanaguageID" />
+      </Principal>
+      <Dependent Role="codePatientTypeLanguage">
+        <PropertyRef Name="LanaguageID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CodeReferralStatusLanguage_LangugaeID">
+    <End Role="codeLanguage" Type="Self.codeLanguage" Multiplicity="0..1" />
+    <End Role="codeReferralStatusLanguage" Type="Self.codeReferralStatusLanguage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="codeLanguage">
+        <PropertyRef Name="LanaguageID" />
+      </Principal>
+      <Dependent Role="codeReferralStatusLanguage">
+        <PropertyRef Name="LanaguageID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_codeReferralTypeLanguage_LangugaeID">
+    <End Role="codeLanguage" Type="Self.codeLanguage" Multiplicity="0..1" />
+    <End Role="codeReferralTypeLanguage" Type="Self.codeReferralTypeLanguage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="codeLanguage">
+        <PropertyRef Name="LanaguageID" />
+      </Principal>
+      <Dependent Role="codeReferralTypeLanguage">
+        <PropertyRef Name="LanaguageID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CodeCountryLanguage_CountryGUID">
+    <End Role="codeLocation" Type="Self.codeLocation" Multiplicity="0..1" />
+    <End Role="codeLocationLanguage" Type="Self.codeLocationLanguage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="codeLocation">
+        <PropertyRef Name="LocationGUID" />
+      </Principal>
+      <Dependent Role="codeLocationLanguage">
+        <PropertyRef Name="LocationGUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_codeLocation_codeLocation">
+    <End Role="codeLocation" Type="Self.codeLocation" Multiplicity="0..1" />
+    <End Role="codeLocation1" Type="Self.codeLocation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="codeLocation">
+        <PropertyRef Name="LocationGUID" />
+      </Principal>
+      <Dependent Role="codeLocation1">
+        <PropertyRef Name="LocationParentGUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_codeParty_CountryGUID">
+    <End Role="codeLocation" Type="Self.codeLocation" Multiplicity="0..1" />
+    <End Role="codeParty" Type="Self.codeParty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="codeLocation">
+        <PropertyRef Name="LocationGUID" />
+      </Principal>
+      <Dependent Role="codeParty">
+        <PropertyRef Name="LocationGUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dataPatient_OrigionCountry">
+    <End Role="codeLocation" Type="Self.codeLocation" Multiplicity="0..1" />
+    <End Role="dataPatient" Type="Self.dataPatient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="codeLocation">
+        <PropertyRef Name="LocationGUID" />
+      </Principal>
+      <Dependent Role="dataPatient">
+        <PropertyRef Name="OrigionCountryGUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_codeMedicalProcedureLanguageMedicalProcedureGUID">
+    <End Role="codeMedicalProcedure" Type="Self.codeMedicalProcedure" Multiplicity="0..1" />
+    <End Role="codeMedicalProcedureLanguage" Type="Self.codeMedicalProcedureLanguage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="codeMedicalProcedure">
+        <PropertyRef Name="MedicalProcedureGUID" />
+      </Principal>
+      <Dependent Role="codeMedicalProcedureLanguage">
+        <PropertyRef Name="MedicalProcedureGUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dataMedicalProcedureHospitalCost_MedicalProcedureGUID">
+    <End Role="codeMedicalProcedure" Type="Self.codeMedicalProcedure" Multiplicity="0..1" />
+    <End Role="dataMedicalProcedureHospitalCost" Type="Self.dataMedicalProcedureHospitalCost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="codeMedicalProcedure">
+        <PropertyRef Name="MedicalProcedureGUID" />
+      </Principal>
+      <Dependent Role="dataMedicalProcedureHospitalCost">
+        <PropertyRef Name="MedicalProcedureGUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dataReferralDetail_MedicalProcedureGUID">
+    <End Role="codeMedicalProcedure" Type="Self.codeMedicalProcedure" Multiplicity="0..1" />
+    <End Role="dataReferralDetail" Type="Self.dataReferralDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="codeMedicalProcedure">
+        <PropertyRef Name="MedicalProcedureGUID" />
+      </Principal>
+      <Dependent Role="dataReferralDetail">
+        <PropertyRef Name="MedicalProcedureGUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dataReferralProcedure_MedicalProcedureGUID">
+    <End Role="codeMedicalProcedure" Type="Self.codeMedicalProcedure" Multiplicity="0..1" />
+    <End Role="dataReferralAcceptanceProcedure" Type="Self.dataReferralAcceptanceProcedure" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="codeMedicalProcedure">
+        <PropertyRef Name="MedicalProcedureGUID" />
+      </Principal>
+      <Dependent Role="dataReferralAcceptanceProcedure">
+        <PropertyRef Name="MedicalProcedureGUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MedicalProcedureGUID_ParentGUID">
+    <End Role="codeMedicalProcedure" Type="Self.codeMedicalProcedure" Multiplicity="0..1" />
+    <End Role="codeMedicalProcedure1" Type="Self.codeMedicalProcedure" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="codeMedicalProcedure">
+        <PropertyRef Name="MedicalProcedureGUID" />
+      </Principal>
+      <Dependent Role="codeMedicalProcedure1">
+        <PropertyRef Name="ParentGUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_codeOrgnization_CorporationGUID">
+    <End Role="codeParty" Type="Self.codeParty" Multiplicity="0..1" />
+    <End Role="codeOrgnization" Type="Self.codeOrgnization" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="codeParty">
+        <PropertyRef Name="PartyGUID" />
+      </Principal>
+      <Dependent Role="codeOrgnization">
+        <PropertyRef Name="PartyGUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_codePartner_CorporationGUID">
+    <End Role="codeParty" Type="Self.codeParty" Multiplicity="0..1" />
+    <End Role="codePartner" Type="Self.codePartner" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="codeParty">
+        <PropertyRef Name="PartyGUID" />
+      </Principal>
+      <Dependent Role="codePartner">
+        <PropertyRef Name="PartyGUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_codeCorporationLanguage_CorporationGUID">
+    <End Role="codeParty" Type="Self.codeParty" Multiplicity="0..1" />
+    <End Role="codePartyLanguage" Type="Self.codePartyLanguage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="codeParty">
+        <PropertyRef Name="PartyGUID" />
+      </Principal>
+      <Dependent Role="codePartyLanguage">
+        <PropertyRef Name="PartyGUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_codeParty_PartyTypeGUID">
+    <End Role="codePartyType" Type="Self.codePartyType" Multiplicity="0..1" />
+    <End Role="codeParty" Type="Self.codeParty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="codePartyType">
+        <PropertyRef Name="PartyTypeGUID" />
+      </Principal>
+      <Dependent Role="codeParty">
+        <PropertyRef Name="PartyTypeGUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dataReferral_ReferralSourceGUID">
+    <End Role="codeParty" Type="Self.codeParty" Multiplicity="0..1" />
+    <End Role="dataReferral" Type="Self.dataReferral" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="codeParty">
+        <PropertyRef Name="PartyGUID" />
+      </Principal>
+      <Dependent Role="dataReferral">
+        <PropertyRef Name="ReferralSourceGUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmployeeJobTitle_PartyGUID">
+    <End Role="codeParty" Type="Self.codeParty" Multiplicity="0..1" />
+    <End Role="userAccount" Type="Self.userAccount" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="codeParty">
+        <PropertyRef Name="PartyGUID" />
+      </Principal>
+      <Dependent Role="userAccount">
+        <PropertyRef Name="PartyGUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_userParty_PartyGUID">
+    <End Role="codeParty" Type="Self.codeParty" Multiplicity="0..1" />
+    <End Role="userParty" Type="Self.userParty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="codeParty">
+        <PropertyRef Name="PartyGUID" />
+      </Principal>
+      <Dependent Role="userParty">
+        <PropertyRef Name="PartyGUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_codePartyTypeLanguage_PartyTypeGUID">
+    <End Role="codePartyType" Type="Self.codePartyType" Multiplicity="0..1" />
+    <End Role="codePartyTypeLanguage" Type="Self.codePartyTypeLanguage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="codePartyType">
+        <PropertyRef Name="PartyTypeGUID" />
+      </Principal>
+      <Dependent Role="codePartyTypeLanguage">
+        <PropertyRef Name="PartyTypeGUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_codePatientStatusLanguage_PatientStatusGUID">
+    <End Role="codePatientStatus" Type="Self.codePatientStatu" Multiplicity="0..1" />
+    <End Role="codePatientStatusLanguage" Type="Self.codePatientStatusLanguage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="codePatientStatus">
+        <PropertyRef Name="PatientStatusGUID" />
+      </Principal>
+      <Dependent Role="codePatientStatusLanguage">
+        <PropertyRef Name="PatientStatusGUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dataHospitalAcceptance_PatientStatusGUID">
+    <End Role="codePatientStatus" Type="Self.codePatientStatu" Multiplicity="0..1" />
+    <End Role="dataReferralAcceptance" Type="Self.dataReferralAcceptance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="codePatientStatus">
+        <PropertyRef Name="PatientStatusGUID" />
+      </Principal>
+      <Dependent Role="dataReferralAcceptance">
+        <PropertyRef Name="PatientStatusGUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_codePatientTypeLanguage_PatientTypeGUID">
+    <End Role="codePatientType" Type="Self.codePatientType" Multiplicity="0..1" />
+    <End Role="codePatientTypeLanguage" Type="Self.codePatientTypeLanguage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="codePatientType">
+        <PropertyRef Name="PatientTypeGUID" />
+      </Principal>
+      <Dependent Role="codePatientTypeLanguage">
+        <PropertyRef Name="PatientTypeGUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dataPatients_PatientTypeGUID">
+    <End Role="codePatientType" Type="Self.codePatientType" Multiplicity="0..1" />
+    <End Role="dataPatient" Type="Self.dataPatient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="codePatientType">
+        <PropertyRef Name="PatientTypeGUID" />
+      </Principal>
+      <Dependent Role="dataPatient">
+        <PropertyRef Name="PatientTypeGUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CodeReferralStatusLanguage_ReferralStatusGUID">
+    <End Role="codeReferralStatus" Type="Self.codeReferralStatu" Multiplicity="0..1" />
+    <End Role="codeReferralStatusLanguage" Type="Self.codeReferralStatusLanguage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="codeReferralStatus">
+        <PropertyRef Name="ReferralStatusGUID" />
+      </Principal>
+      <Dependent Role="codeReferralStatusLanguage">
+        <PropertyRef Name="ReferralStatusGUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dataReferral_ReferralStatusGUID">
+    <End Role="codeReferralStatus" Type="Self.codeReferralStatu" Multiplicity="0..1" />
+    <End Role="dataReferral" Type="Self.dataReferral" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="codeReferralStatus">
+        <PropertyRef Name="ReferralStatusGUID" />
+      </Principal>
+      <Dependent Role="dataReferral">
+        <PropertyRef Name="ReferralStatusGUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CodeReferralTypeLanguage_ReferralTypeGUID">
+    <End Role="codeReferralType" Type="Self.codeReferralType" Multiplicity="0..1" />
+    <End Role="codeReferralTypeLanguage" Type="Self.codeReferralTypeLanguage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="codeReferralType">
+        <PropertyRef Name="ReferralTypeGUID" />
+      </Principal>
+      <Dependent Role="codeReferralTypeLanguage">
+        <PropertyRef Name="ReferralTypeGUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dataReferral_ReferralTypeGUID">
+    <End Role="codeReferralType" Type="Self.codeReferralType" Multiplicity="0..1" />
+    <End Role="dataReferral" Type="Self.dataReferral" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="codeReferralType">
+        <PropertyRef Name="ReferralTypeGUID" />
+      </Principal>
+      <Dependent Role="dataReferral">
+        <PropertyRef Name="ReferralTypeGUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dataMedicalProcedureHospitalCost_CreatedBy">
+    <End Role="userAccount" Type="Self.userAccount" Multiplicity="0..1" />
+    <End Role="dataMedicalProcedureHospitalCost" Type="Self.dataMedicalProcedureHospitalCost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="userAccount">
+        <PropertyRef Name="UserGUID" />
+      </Principal>
+      <Dependent Role="dataMedicalProcedureHospitalCost">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dataMedicalProcedureHospitalCost_ModifiedBy">
+    <End Role="userAccount" Type="Self.userAccount" Multiplicity="0..1" />
+    <End Role="dataMedicalProcedureHospitalCost" Type="Self.dataMedicalProcedureHospitalCost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="userAccount">
+        <PropertyRef Name="UserGUID" />
+      </Principal>
+      <Dependent Role="dataMedicalProcedureHospitalCost">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dataPatient_CreatedBy">
+    <End Role="userAccount" Type="Self.userAccount" Multiplicity="0..1" />
+    <End Role="dataPatient" Type="Self.dataPatient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="userAccount">
+        <PropertyRef Name="UserGUID" />
+      </Principal>
+      <Dependent Role="dataPatient">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dataPatient_ModifiedBy">
+    <End Role="userAccount" Type="Self.userAccount" Multiplicity="0..1" />
+    <End Role="dataPatient" Type="Self.dataPatient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="userAccount">
+        <PropertyRef Name="UserGUID" />
+      </Principal>
+      <Dependent Role="dataPatient">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dataReferral_PatientGUID">
+    <End Role="dataPatient" Type="Self.dataPatient" Multiplicity="0..1" />
+    <End Role="dataReferral" Type="Self.dataReferral" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dataPatient">
+        <PropertyRef Name="PatientGUID" />
+      </Principal>
+      <Dependent Role="dataReferral">
+        <PropertyRef Name="PatientGUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dataHospitalAcceptance_ReferralGUID">
+    <End Role="dataReferral" Type="Self.dataReferral" Multiplicity="0..1" />
+    <End Role="dataReferralAcceptance" Type="Self.dataReferralAcceptance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dataReferral">
+        <PropertyRef Name="ReferralGUID" />
+      </Principal>
+      <Dependent Role="dataReferralAcceptance">
+        <PropertyRef Name="ReferralGUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dataReferral_CreatedBy">
+    <End Role="userAccount" Type="Self.userAccount" Multiplicity="0..1" />
+    <End Role="dataReferral" Type="Self.dataReferral" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="userAccount">
+        <PropertyRef Name="UserGUID" />
+      </Principal>
+      <Dependent Role="dataReferral">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dataReferral_ModifiedBy">
+    <End Role="userAccount" Type="Self.userAccount" Multiplicity="0..1" />
+    <End Role="dataReferral" Type="Self.dataReferral" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="userAccount">
+        <PropertyRef Name="UserGUID" />
+      </Principal>
+      <Dependent Role="dataReferral">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dataReferralCorrespondence_ReferralGUID">
+    <End Role="dataReferral" Type="Self.dataReferral" Multiplicity="0..1" />
+    <End Role="dataReferralCorrespondence" Type="Self.dataReferralCorrespondence" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dataReferral">
+        <PropertyRef Name="ReferralGUID" />
+      </Principal>
+      <Dependent Role="dataReferralCorrespondence">
+        <PropertyRef Name="ReferralGUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dataReferralDetail_ReferralGUID">
+    <End Role="dataReferral" Type="Self.dataReferral" Multiplicity="0..1" />
+    <End Role="dataReferralDetail" Type="Self.dataReferralDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dataReferral">
+        <PropertyRef Name="ReferralGUID" />
+      </Principal>
+      <Dependent Role="dataReferralDetail">
+        <PropertyRef Name="ReferralGUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dataReferralDiagnosis_ReferralGUID">
+    <End Role="dataReferral" Type="Self.dataReferral" Multiplicity="0..1" />
+    <End Role="dataReferralDiagnosis" Type="Self.dataReferralDiagnosi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dataReferral">
+        <PropertyRef Name="ReferralGUID" />
+      </Principal>
+      <Dependent Role="dataReferralDiagnosis">
+        <PropertyRef Name="ReferralGUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dataReferralAcceptance_CreatedBy">
+    <End Role="userAccount" Type="Self.userAccount" Multiplicity="0..1" />
+    <End Role="dataReferralAcceptance" Type="Self.dataReferralAcceptance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="userAccount">
+        <PropertyRef Name="UserGUID" />
+      </Principal>
+      <Dependent Role="dataReferralAcceptance">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dataReferralAcceptance_ModifiedBy">
+    <End Role="userAccount" Type="Self.userAccount" Multiplicity="0..1" />
+    <End Role="dataReferralAcceptance" Type="Self.dataReferralAcceptance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="userAccount">
+        <PropertyRef Name="UserGUID" />
+      </Principal>
+      <Dependent Role="dataReferralAcceptance">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dataReferralAcceptanceDiagnosis_ReferralGUID">
+    <End Role="dataReferralAcceptance" Type="Self.dataReferralAcceptance" Multiplicity="0..1" />
+    <End Role="dataReferralAcceptanceDiagnosis" Type="Self.dataReferralAcceptanceDiagnosi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dataReferralAcceptance">
+        <PropertyRef Name="ReferralAcceptanceGUID" />
+      </Principal>
+      <Dependent Role="dataReferralAcceptanceDiagnosis">
+        <PropertyRef Name="ReferralAcceptanceGUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dataReferralProcedure_ReferralGUID">
+    <End Role="dataReferralAcceptance" Type="Self.dataReferralAcceptance" Multiplicity="0..1" />
+    <End Role="dataReferralAcceptanceProcedure" Type="Self.dataReferralAcceptanceProcedure" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dataReferralAcceptance">
+        <PropertyRef Name="ReferralAcceptanceGUID" />
+      </Principal>
+      <Dependent Role="dataReferralAcceptanceProcedure">
+        <PropertyRef Name="ReferralAcceptanceGUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dataReferralAcceptanceDiagnosis_CreatedDate">
+    <End Role="userAccount" Type="Self.userAccount" Multiplicity="0..1" />
+    <End Role="dataReferralAcceptanceDiagnosis" Type="Self.dataReferralAcceptanceDiagnosi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="userAccount">
+        <PropertyRef Name="UserGUID" />
+      </Principal>
+      <Dependent Role="dataReferralAcceptanceDiagnosis">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dataReferralAcceptanceDiagnosis_ModifiedBy">
+    <End Role="userAccount" Type="Self.userAccount" Multiplicity="0..1" />
+    <End Role="dataReferralAcceptanceDiagnosis" Type="Self.dataReferralAcceptanceDiagnosi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="userAccount">
+        <PropertyRef Name="UserGUID" />
+      </Principal>
+      <Dependent Role="dataReferralAcceptanceDiagnosis">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dataReferralProcedure_CreatedBy">
+    <End Role="userAccount" Type="Self.userAccount" Multiplicity="0..1" />
+    <End Role="dataReferralAcceptanceProcedure" Type="Self.dataReferralAcceptanceProcedure" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="userAccount">
+        <PropertyRef Name="UserGUID" />
+      </Principal>
+      <Dependent Role="dataReferralAcceptanceProcedure">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dataReferralProcedures_ModifiedBy">
+    <End Role="userAccount" Type="Self.userAccount" Multiplicity="0..1" />
+    <End Role="dataReferralAcceptanceProcedure" Type="Self.dataReferralAcceptanceProcedure" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="userAccount">
+        <PropertyRef Name="UserGUID" />
+      </Principal>
+      <Dependent Role="dataReferralAcceptanceProcedure">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dataReferralCorrespondence_CreatedBy">
+    <End Role="userAccount" Type="Self.userAccount" Multiplicity="0..1" />
+    <End Role="dataReferralCorrespondence" Type="Self.dataReferralCorrespondence" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="userAccount">
+        <PropertyRef Name="UserGUID" />
+      </Principal>
+      <Dependent Role="dataReferralCorrespondence">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dataReferralCorrespondence_fromUserGUID">
+    <End Role="userAccount" Type="Self.userAccount" Multiplicity="0..1" />
+    <End Role="dataReferralCorrespondence" Type="Self.dataReferralCorrespondence" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="userAccount">
+        <PropertyRef Name="UserGUID" />
+      </Principal>
+      <Dependent Role="dataReferralCorrespondence">
+        <PropertyRef Name="FromUserGUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dataReferralCorrespondence_ModifiedBy">
+    <End Role="userAccount" Type="Self.userAccount" Multiplicity="0..1" />
+    <End Role="dataReferralCorrespondence" Type="Self.dataReferralCorrespondence" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="userAccount">
+        <PropertyRef Name="UserGUID" />
+      </Principal>
+      <Dependent Role="dataReferralCorrespondence">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dataReferralCorrespondence_toUserGUID">
+    <End Role="userAccount" Type="Self.userAccount" Multiplicity="0..1" />
+    <End Role="dataReferralCorrespondence" Type="Self.dataReferralCorrespondence" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="userAccount">
+        <PropertyRef Name="UserGUID" />
+      </Principal>
+      <Dependent Role="dataReferralCorrespondence">
+        <PropertyRef Name="ToUserGUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dataReferralCorrespondenceReceipent_ReferralCorrespondenceGUID">
+    <End Role="dataReferralCorrespondence" Type="Self.dataReferralCorrespondence" Multiplicity="0..1" />
+    <End Role="dataReferralCorrespondenceReceipent" Type="Self.dataReferralCorrespondenceReceipent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dataReferralCorrespondence">
+        <PropertyRef Name="ReferralCorrespondenceGUID" />
+      </Principal>
+      <Dependent Role="dataReferralCorrespondenceReceipent">
+        <PropertyRef Name="ReferralCorrespondenceGUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dataReferralCorrespondenceReceipent_fromUserGUID">
+    <End Role="userAccount" Type="Self.userAccount" Multiplicity="0..1" />
+    <End Role="dataReferralCorrespondenceReceipent" Type="Self.dataReferralCorrespondenceReceipent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="userAccount">
+        <PropertyRef Name="UserGUID" />
+      </Principal>
+      <Dependent Role="dataReferralCorrespondenceReceipent">
+        <PropertyRef Name="ToUserGUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dataReferralDetail_CreatedBy">
+    <End Role="userAccount" Type="Self.userAccount" Multiplicity="0..1" />
+    <End Role="dataReferralDetail" Type="Self.dataReferralDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="userAccount">
+        <PropertyRef Name="UserGUID" />
+      </Principal>
+      <Dependent Role="dataReferralDetail">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dataReferralDetail_ModifiedBy">
+    <End Role="userAccount" Type="Self.userAccount" Multiplicity="0..1" />
+    <End Role="dataReferralDetail" Type="Self.dataReferralDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="userAccount">
+        <PropertyRef Name="UserGUID" />
+      </Principal>
+      <Dependent Role="dataReferralDetail">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dataReferralDiagnosis_CreatedDate">
+    <End Role="userAccount" Type="Self.userAccount" Multiplicity="0..1" />
+    <End Role="dataReferralDiagnosis" Type="Self.dataReferralDiagnosi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="userAccount">
+        <PropertyRef Name="UserGUID" />
+      </Principal>
+      <Dependent Role="dataReferralDiagnosis">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dataReferralDiagnosis_ModifiedBy">
+    <End Role="userAccount" Type="Self.userAccount" Multiplicity="0..1" />
+    <End Role="dataReferralDiagnosis" Type="Self.dataReferralDiagnosi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="userAccount">
+        <PropertyRef Name="UserGUID" />
+      </Principal>
+      <Dependent Role="dataReferralDiagnosis">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_userDefinition_EmployeeJobTitleGUID">
+    <End Role="EmployeeJobTitle" Type="Self.EmployeeJobTitle" Multiplicity="0..1" />
+    <End Role="userAccount" Type="Self.userAccount" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmployeeJobTitle">
+        <PropertyRef Name="EmployeeJobTitleGUID" />
+      </Principal>
+      <Dependent Role="userAccount">
+        <PropertyRef Name="userJobTitle" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__userPermi__UserG__14E61A24">
+    <End Role="userAccount" Type="Self.userAccount" Multiplicity="0..1" />
+    <End Role="userPermission" Type="Self.userPermission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="userAccount">
+        <PropertyRef Name="UserGUID" />
+      </Principal>
+      <Dependent Role="userPermission">
+        <PropertyRef Name="UserGUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_userParty_UserGUID">
+    <End Role="userAccount" Type="Self.userAccount" Multiplicity="0..1" />
+    <End Role="userParty" Type="Self.userParty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="userAccount">
+        <PropertyRef Name="UserGUID" />
+      </Principal>
+      <Dependent Role="userParty">
+        <PropertyRef Name="UserGUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MCSEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="codeActions" EntityType="Self.codeAction" />
+    <EntitySet Name="codeActionCategories" EntityType="Self.codeActionCategory" />
+    <EntitySet Name="codeActionCategoryFactors" EntityType="Self.codeActionCategoryFactor" />
+    <EntitySet Name="codeApplications" EntityType="Self.codeApplication" />
+    <EntitySet Name="codeFactors" EntityType="Self.codeFactor" />
+    <EntitySet Name="codeHospitals" EntityType="Self.codeHospital" />
+    <EntitySet Name="codeHospitalBudgets" EntityType="Self.codeHospitalBudget" />
+    <EntitySet Name="codeHospitalLanguages" EntityType="Self.codeHospitalLanguage" />
+    <EntitySet Name="codeHospitalTypes" EntityType="Self.codeHospitalType" />
+    <EntitySet Name="codeHospitalTypeLanguages" EntityType="Self.codeHospitalTypeLanguage" />
+    <EntitySet Name="codeICDTens" EntityType="Self.codeICDTen" />
+    <EntitySet Name="codeICDTenLanguages" EntityType="Self.codeICDTenLanguage" />
+    <EntitySet Name="codeLanguages" EntityType="Self.codeLanguage" />
+    <EntitySet Name="codeLocations" EntityType="Self.codeLocation" />
+    <EntitySet Name="codeLocationLanguages" EntityType="Self.codeLocationLanguage" />
+    <EntitySet Name="codeMedicalProcedures" EntityType="Self.codeMedicalProcedure" />
+    <EntitySet Name="codeMedicalProcedureLanguages" EntityType="Self.codeMedicalProcedureLanguage" />
+    <EntitySet Name="codeOrgnizations" EntityType="Self.codeOrgnization" />
+    <EntitySet Name="codePartners" EntityType="Self.codePartner" />
+    <EntitySet Name="codeParties" EntityType="Self.codeParty" />
+    <EntitySet Name="codePartyLanguages" EntityType="Self.codePartyLanguage" />
+    <EntitySet Name="codePartyTypes" EntityType="Self.codePartyType" />
+    <EntitySet Name="codePartyTypeLanguages" EntityType="Self.codePartyTypeLanguage" />
+    <EntitySet Name="codePatientStatus" EntityType="Self.codePatientStatu" />
+    <EntitySet Name="codePatientStatusLanguages" EntityType="Self.codePatientStatusLanguage" />
+    <EntitySet Name="codePatientTypes" EntityType="Self.codePatientType" />
+    <EntitySet Name="codePatientTypeLanguages" EntityType="Self.codePatientTypeLanguage" />
+    <EntitySet Name="codeReferralStatus" EntityType="Self.codeReferralStatu" />
+    <EntitySet Name="codeReferralStatusLanguages" EntityType="Self.codeReferralStatusLanguage" />
+    <EntitySet Name="codeReferralTypes" EntityType="Self.codeReferralType" />
+    <EntitySet Name="codeReferralTypeLanguages" EntityType="Self.codeReferralTypeLanguage" />
+    <EntitySet Name="dataMedicalProcedureHospitalCosts" EntityType="Self.dataMedicalProcedureHospitalCost" />
+    <EntitySet Name="dataPatients" EntityType="Self.dataPatient" />
+    <EntitySet Name="dataReferrals" EntityType="Self.dataReferral" />
+    <EntitySet Name="dataReferralAcceptances" EntityType="Self.dataReferralAcceptance" />
+    <EntitySet Name="dataReferralAcceptanceDiagnosis" EntityType="Self.dataReferralAcceptanceDiagnosi" />
+    <EntitySet Name="dataReferralAcceptanceProcedures" EntityType="Self.dataReferralAcceptanceProcedure" />
+    <EntitySet Name="dataReferralCorrespondences" EntityType="Self.dataReferralCorrespondence" />
+    <EntitySet Name="dataReferralCorrespondenceReceipents" EntityType="Self.dataReferralCorrespondenceReceipent" />
+    <EntitySet Name="dataReferralDetails" EntityType="Self.dataReferralDetail" />
+    <EntitySet Name="dataReferralDiagnosis" EntityType="Self.dataReferralDiagnosi" />
+    <EntitySet Name="EmployeeJobTitles" EntityType="Self.EmployeeJobTitle" />
+    <EntitySet Name="proGresIndividuals" EntityType="Self.proGresIndividual" />
+    <EntitySet Name="userAccounts" EntityType="Self.userAccount" />
+    <EntitySet Name="userParties" EntityType="Self.userParty" />
+    <EntitySet Name="userPermissions" EntityType="Self.userPermission" />
+    <EntitySet Name="v_ActionCatgoryFactor" EntityType="Self.v_ActionCatgoryFactor" />
+    <EntitySet Name="v_FactorValue" EntityType="Self.v_FactorValue" />
+    <AssociationSet Name="FK__codeActio__Actio__1F98B2C1" Association="Self.FK__codeActio__Actio__1F98B2C1">
+      <End Role="codeActionCategory" EntitySet="codeActionCategories" />
+      <End Role="codeAction" EntitySet="codeActions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__userPermi__Actio__22751F6C" Association="Self.FK__userPermi__Actio__22751F6C">
+      <End Role="codeAction" EntitySet="codeActions" />
+      <End Role="userPermission" EntitySet="userPermissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__codeActio__Actio__1CBC4616" Association="Self.FK__codeActio__Actio__1CBC4616">
+      <End Role="codeActionCategory" EntitySet="codeActionCategories" />
+      <End Role="codeActionCategoryFactor" EntitySet="codeActionCategoryFactors" />
+    </AssociationSet>
+    <AssociationSet Name="FK__codeActio__Appli__19DFD96B" Association="Self.FK__codeActio__Appli__19DFD96B">
+      <End Role="codeApplication" EntitySet="codeApplications" />
+      <End Role="codeActionCategory" EntitySet="codeActionCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_codeHospital_CorporationGUID" Association="Self.FK_codeHospital_CorporationGUID">
+      <End Role="codeParty" EntitySet="codeParties" />
+      <End Role="codeHospital" EntitySet="codeHospitals" />
+    </AssociationSet>
+    <AssociationSet Name="FK_codeHospital_HospitalTypeGUID" Association="Self.FK_codeHospital_HospitalTypeGUID">
+      <End Role="codeHospitalType" EntitySet="codeHospitalTypes" />
+      <End Role="codeHospital" EntitySet="codeHospitals" />
+    </AssociationSet>
+    <AssociationSet Name="FK_codeHospitalBudget_HospitalGUID" Association="Self.FK_codeHospitalBudget_HospitalGUID">
+      <End Role="codeHospital" EntitySet="codeHospitals" />
+      <End Role="codeHospitalBudget" EntitySet="codeHospitalBudgets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_codeHospitalLanguage_HospitalGUID" Association="Self.FK_codeHospitalLanguage_HospitalGUID">
+      <End Role="codeHospital" EntitySet="codeHospitals" />
+      <End Role="codeHospitalLanguage" EntitySet="codeHospitalLanguages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dataMedicalProcedureHospitalCost_HospitalGUID" Association="Self.FK_dataMedicalProcedureHospitalCost_HospitalGUID">
+      <End Role="codeHospital" EntitySet="codeHospitals" />
+      <End Role="dataMedicalProcedureHospitalCost" EntitySet="dataMedicalProcedureHospitalCosts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dataReferral_HospitalGUID" Association="Self.FK_dataReferral_HospitalGUID">
+      <End Role="codeHospital" EntitySet="codeHospitals" />
+      <End Role="dataReferral" EntitySet="dataReferrals" />
+    </AssociationSet>
+    <AssociationSet Name="FK_codeHospitalBudget_CreatedBy" Association="Self.FK_codeHospitalBudget_CreatedBy">
+      <End Role="userAccount" EntitySet="userAccounts" />
+      <End Role="codeHospitalBudget" EntitySet="codeHospitalBudgets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_codeHospitalBudget_ModifiedBy" Association="Self.FK_codeHospitalBudget_ModifiedBy">
+      <End Role="userAccount" EntitySet="userAccounts" />
+      <End Role="codeHospitalBudget" EntitySet="codeHospitalBudgets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_codeHospitalLanguage_LangugaeID" Association="Self.FK_codeHospitalLanguage_LangugaeID">
+      <End Role="codeLanguage" EntitySet="codeLanguages" />
+      <End Role="codeHospitalLanguage" EntitySet="codeHospitalLanguages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_codeHospitalType_HospitalTypeGUID" Association="Self.FK_codeHospitalType_HospitalTypeGUID">
+      <End Role="codeHospitalType" EntitySet="codeHospitalTypes" />
+      <End Role="codeHospitalTypeLanguage" EntitySet="codeHospitalTypeLanguages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_codeHospitalTypeLanguage_LangugaeID" Association="Self.FK_codeHospitalTypeLanguage_LangugaeID">
+      <End Role="codeLanguage" EntitySet="codeLanguages" />
+      <End Role="codeHospitalTypeLanguage" EntitySet="codeHospitalTypeLanguages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_codeICDTenLanguage_MedicalProcedureGUID" Association="Self.FK_codeICDTenLanguage_MedicalProcedureGUID">
+      <End Role="codeICDTen" EntitySet="codeICDTens" />
+      <End Role="codeICDTenLanguage" EntitySet="codeICDTenLanguages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dataReferralAcceptanceDiagnosis_ICDTenGUID" Association="Self.FK_dataReferralAcceptanceDiagnosis_ICDTenGUID">
+      <End Role="codeICDTen" EntitySet="codeICDTens" />
+      <End Role="dataReferralAcceptanceDiagnosis" EntitySet="dataReferralAcceptanceDiagnosis" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dataReferralDiagnosis_ICDTenGUID" Association="Self.FK_dataReferralDiagnosis_ICDTenGUID">
+      <End Role="codeICDTen" EntitySet="codeICDTens" />
+      <End Role="dataReferralDiagnosis" EntitySet="dataReferralDiagnosis" />
+    </AssociationSet>
+    <AssociationSet Name="codeICDTenLanguage_Fk_LangugaeID" Association="Self.codeICDTenLanguage_Fk_LangugaeID">
+      <End Role="codeLanguage" EntitySet="codeLanguages" />
+      <End Role="codeICDTenLanguage" EntitySet="codeICDTenLanguages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_codeCorporationLanguage_LangugaeID" Association="Self.FK_codeCorporationLanguage_LangugaeID">
+      <End Role="codeLanguage" EntitySet="codeLanguages" />
+      <End Role="codePartyLanguage" EntitySet="codePartyLanguages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CodeICDTenLanguage_LangugaeID" Association="Self.FK_CodeICDTenLanguage_LangugaeID">
+      <End Role="codeLanguage" EntitySet="codeLanguages" />
+      <End Role="codeLocationLanguage" EntitySet="codeLocationLanguages" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_codeMedicalProcedureLanguage_LangugaeID" Association="Self.Fk_codeMedicalProcedureLanguage_LangugaeID">
+      <End Role="codeLanguage" EntitySet="codeLanguages" />
+      <End Role="codeMedicalProcedureLanguage" EntitySet="codeMedicalProcedureLanguages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_codePartyTypeLanguage_LangugaeID" Association="Self.FK_codePartyTypeLanguage_LangugaeID">
+      <End Role="codeLanguage" EntitySet="codeLanguages" />
+      <End Role="codePartyTypeLanguage" EntitySet="codePartyTypeLanguages" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_codePatientStatusLanguage_LangugaeID" Association="Self.Fk_codePatientStatusLanguage_LangugaeID">
+      <End Role="codeLanguage" EntitySet="codeLanguages" />
+      <End Role="codePatientStatusLanguage" EntitySet="codePatientStatusLanguages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_codePatientTypeLanguage_LangugaeID" Association="Self.FK_codePatientTypeLanguage_LangugaeID">
+      <End Role="codeLanguage" EntitySet="codeLanguages" />
+      <End Role="codePatientTypeLanguage" EntitySet="codePatientTypeLanguages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CodeReferralStatusLanguage_LangugaeID" Association="Self.FK_CodeReferralStatusLanguage_LangugaeID">
+      <End Role="codeLanguage" EntitySet="codeLanguages" />
+      <End Role="codeReferralStatusLanguage" EntitySet="codeReferralStatusLanguages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_codeReferralTypeLanguage_LangugaeID" Association="Self.FK_codeReferralTypeLanguage_LangugaeID">
+      <End Role="codeLanguage" EntitySet="codeLanguages" />
+      <End Role="codeReferralTypeLanguage" EntitySet="codeReferralTypeLanguages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CodeCountryLanguage_CountryGUID" Association="Self.FK_CodeCountryLanguage_CountryGUID">
+      <End Role="codeLocation" EntitySet="codeLocations" />
+      <End Role="codeLocationLanguage" EntitySet="codeLocationLanguages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_codeLocation_codeLocation" Association="Self.FK_codeLocation_codeLocation">
+      <End Role="codeLocation" EntitySet="codeLocations" />
+      <End Role="codeLocation1" EntitySet="codeLocations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_codeParty_CountryGUID" Association="Self.FK_codeParty_CountryGUID">
+      <End Role="codeLocation" EntitySet="codeLocations" />
+      <End Role="codeParty" EntitySet="codeParties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dataPatient_OrigionCountry" Association="Self.FK_dataPatient_OrigionCountry">
+      <End Role="codeLocation" EntitySet="codeLocations" />
+      <End Role="dataPatient" EntitySet="dataPatients" />
+    </AssociationSet>
+    <AssociationSet Name="FK_codeMedicalProcedureLanguageMedicalProcedureGUID" Association="Self.FK_codeMedicalProcedureLanguageMedicalProcedureGUID">
+      <End Role="codeMedicalProcedure" EntitySet="codeMedicalProcedures" />
+      <End Role="codeMedicalProcedureLanguage" EntitySet="codeMedicalProcedureLanguages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dataMedicalProcedureHospitalCost_MedicalProcedureGUID" Association="Self.FK_dataMedicalProcedureHospitalCost_MedicalProcedureGUID">
+      <End Role="codeMedicalProcedure" EntitySet="codeMedicalProcedures" />
+      <End Role="dataMedicalProcedureHospitalCost" EntitySet="dataMedicalProcedureHospitalCosts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dataReferralDetail_MedicalProcedureGUID" Association="Self.FK_dataReferralDetail_MedicalProcedureGUID">
+      <End Role="codeMedicalProcedure" EntitySet="codeMedicalProcedures" />
+      <End Role="dataReferralDetail" EntitySet="dataReferralDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dataReferralProcedure_MedicalProcedureGUID" Association="Self.FK_dataReferralProcedure_MedicalProcedureGUID">
+      <End Role="codeMedicalProcedure" EntitySet="codeMedicalProcedures" />
+      <End Role="dataReferralAcceptanceProcedure" EntitySet="dataReferralAcceptanceProcedures" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MedicalProcedureGUID_ParentGUID" Association="Self.FK_MedicalProcedureGUID_ParentGUID">
+      <End Role="codeMedicalProcedure" EntitySet="codeMedicalProcedures" />
+      <End Role="codeMedicalProcedure1" EntitySet="codeMedicalProcedures" />
+    </AssociationSet>
+    <AssociationSet Name="FK_codeOrgnization_CorporationGUID" Association="Self.FK_codeOrgnization_CorporationGUID">
+      <End Role="codeParty" EntitySet="codeParties" />
+      <End Role="codeOrgnization" EntitySet="codeOrgnizations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_codePartner_CorporationGUID" Association="Self.FK_codePartner_CorporationGUID">
+      <End Role="codeParty" EntitySet="codeParties" />
+      <End Role="codePartner" EntitySet="codePartners" />
+    </AssociationSet>
+    <AssociationSet Name="FK_codeCorporationLanguage_CorporationGUID" Association="Self.FK_codeCorporationLanguage_CorporationGUID">
+      <End Role="codeParty" EntitySet="codeParties" />
+      <End Role="codePartyLanguage" EntitySet="codePartyLanguages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_codeParty_PartyTypeGUID" Association="Self.FK_codeParty_PartyTypeGUID">
+      <End Role="codePartyType" EntitySet="codePartyTypes" />
+      <End Role="codeParty" EntitySet="codeParties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dataReferral_ReferralSourceGUID" Association="Self.FK_dataReferral_ReferralSourceGUID">
+      <End Role="codeParty" EntitySet="codeParties" />
+      <End Role="dataReferral" EntitySet="dataReferrals" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmployeeJobTitle_PartyGUID" Association="Self.FK_EmployeeJobTitle_PartyGUID">
+      <End Role="codeParty" EntitySet="codeParties" />
+      <End Role="userAccount" EntitySet="userAccounts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_userParty_PartyGUID" Association="Self.FK_userParty_PartyGUID">
+      <End Role="codeParty" EntitySet="codeParties" />
+      <End Role="userParty" EntitySet="userParties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_codePartyTypeLanguage_PartyTypeGUID" Association="Self.FK_codePartyTypeLanguage_PartyTypeGUID">
+      <End Role="codePartyType" EntitySet="codePartyTypes" />
+      <End Role="codePartyTypeLanguage" EntitySet="codePartyTypeLanguages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_codePatientStatusLanguage_PatientStatusGUID" Association="Self.FK_codePatientStatusLanguage_PatientStatusGUID">
+      <End Role="codePatientStatus" EntitySet="codePatientStatus" />
+      <End Role="codePatientStatusLanguage" EntitySet="codePatientStatusLanguages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dataHospitalAcceptance_PatientStatusGUID" Association="Self.FK_dataHospitalAcceptance_PatientStatusGUID">
+      <End Role="codePatientStatus" EntitySet="codePatientStatus" />
+      <End Role="dataReferralAcceptance" EntitySet="dataReferralAcceptances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_codePatientTypeLanguage_PatientTypeGUID" Association="Self.FK_codePatientTypeLanguage_PatientTypeGUID">
+      <End Role="codePatientType" EntitySet="codePatientTypes" />
+      <End Role="codePatientTypeLanguage" EntitySet="codePatientTypeLanguages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dataPatients_PatientTypeGUID" Association="Self.FK_dataPatients_PatientTypeGUID">
+      <End Role="codePatientType" EntitySet="codePatientTypes" />
+      <End Role="dataPatient" EntitySet="dataPatients" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CodeReferralStatusLanguage_ReferralStatusGUID" Association="Self.FK_CodeReferralStatusLanguage_ReferralStatusGUID">
+      <End Role="codeReferralStatus" EntitySet="codeReferralStatus" />
+      <End Role="codeReferralStatusLanguage" EntitySet="codeReferralStatusLanguages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dataReferral_ReferralStatusGUID" Association="Self.FK_dataReferral_ReferralStatusGUID">
+      <End Role="codeReferralStatus" EntitySet="codeReferralStatus" />
+      <End Role="dataReferral" EntitySet="dataReferrals" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CodeReferralTypeLanguage_ReferralTypeGUID" Association="Self.FK_CodeReferralTypeLanguage_ReferralTypeGUID">
+      <End Role="codeReferralType" EntitySet="codeReferralTypes" />
+      <End Role="codeReferralTypeLanguage" EntitySet="codeReferralTypeLanguages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dataReferral_ReferralTypeGUID" Association="Self.FK_dataReferral_ReferralTypeGUID">
+      <End Role="codeReferralType" EntitySet="codeReferralTypes" />
+      <End Role="dataReferral" EntitySet="dataReferrals" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dataMedicalProcedureHospitalCost_CreatedBy" Association="Self.FK_dataMedicalProcedureHospitalCost_CreatedBy">
+      <End Role="userAccount" EntitySet="userAccounts" />
+      <End Role="dataMedicalProcedureHospitalCost" EntitySet="dataMedicalProcedureHospitalCosts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dataMedicalProcedureHospitalCost_ModifiedBy" Association="Self.FK_dataMedicalProcedureHospitalCost_ModifiedBy">
+      <End Role="userAccount" EntitySet="userAccounts" />
+      <End Role="dataMedicalProcedureHospitalCost" EntitySet="dataMedicalProcedureHospitalCosts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dataPatient_CreatedBy" Association="Self.FK_dataPatient_CreatedBy">
+      <End Role="userAccount" EntitySet="userAccounts" />
+      <End Role="dataPatient" EntitySet="dataPatients" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dataPatient_ModifiedBy" Association="Self.FK_dataPatient_ModifiedBy">
+      <End Role="userAccount" EntitySet="userAccounts" />
+      <End Role="dataPatient" EntitySet="dataPatients" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dataReferral_PatientGUID" Association="Self.FK_dataReferral_PatientGUID">
+      <End Role="dataPatient" EntitySet="dataPatients" />
+      <End Role="dataReferral" EntitySet="dataReferrals" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dataHospitalAcceptance_ReferralGUID" Association="Self.FK_dataHospitalAcceptance_ReferralGUID">
+      <End Role="dataReferral" EntitySet="dataReferrals" />
+      <End Role="dataReferralAcceptance" EntitySet="dataReferralAcceptances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dataReferral_CreatedBy" Association="Self.FK_dataReferral_CreatedBy">
+      <End Role="userAccount" EntitySet="userAccounts" />
+      <End Role="dataReferral" EntitySet="dataReferrals" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dataReferral_ModifiedBy" Association="Self.FK_dataReferral_ModifiedBy">
+      <End Role="userAccount" EntitySet="userAccounts" />
+      <End Role="dataReferral" EntitySet="dataReferrals" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dataReferralCorrespondence_ReferralGUID" Association="Self.FK_dataReferralCorrespondence_ReferralGUID">
+      <End Role="dataReferral" EntitySet="dataReferrals" />
+      <End Role="dataReferralCorrespondence" EntitySet="dataReferralCorrespondences" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dataReferralDetail_ReferralGUID" Association="Self.FK_dataReferralDetail_ReferralGUID">
+      <End Role="dataReferral" EntitySet="dataReferrals" />
+      <End Role="dataReferralDetail" EntitySet="dataReferralDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dataReferralDiagnosis_ReferralGUID" Association="Self.FK_dataReferralDiagnosis_ReferralGUID">
+      <End Role="dataReferral" EntitySet="dataReferrals" />
+      <End Role="dataReferralDiagnosis" EntitySet="dataReferralDiagnosis" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dataReferralAcceptance_CreatedBy" Association="Self.FK_dataReferralAcceptance_CreatedBy">
+      <End Role="userAccount" EntitySet="userAccounts" />
+      <End Role="dataReferralAcceptance" EntitySet="dataReferralAcceptances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dataReferralAcceptance_ModifiedBy" Association="Self.FK_dataReferralAcceptance_ModifiedBy">
+      <End Role="userAccount" EntitySet="userAccounts" />
+      <End Role="dataReferralAcceptance" EntitySet="dataReferralAcceptances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dataReferralAcceptanceDiagnosis_ReferralGUID" Association="Self.FK_dataReferralAcceptanceDiagnosis_ReferralGUID">
+      <End Role="dataReferralAcceptance" EntitySet="dataReferralAcceptances" />
+      <End Role="dataReferralAcceptanceDiagnosis" EntitySet="dataReferralAcceptanceDiagnosis" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dataReferralProcedure_ReferralGUID" Association="Self.FK_dataReferralProcedure_ReferralGUID">
+      <End Role="dataReferralAcceptance" EntitySet="dataReferralAcceptances" />
+      <End Role="dataReferralAcceptanceProcedure" EntitySet="dataReferralAcceptanceProcedures" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dataReferralAcceptanceDiagnosis_CreatedDate" Association="Self.FK_dataReferralAcceptanceDiagnosis_CreatedDate">
+      <End Role="userAccount" EntitySet="userAccounts" />
+      <End Role="dataReferralAcceptanceDiagnosis" EntitySet="dataReferralAcceptanceDiagnosis" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dataReferralAcceptanceDiagnosis_ModifiedBy" Association="Self.FK_dataReferralAcceptanceDiagnosis_ModifiedBy">
+      <End Role="userAccount" EntitySet="userAccounts" />
+      <End Role="dataReferralAcceptanceDiagnosis" EntitySet="dataReferralAcceptanceDiagnosis" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dataReferralProcedure_CreatedBy" Association="Self.FK_dataReferralProcedure_CreatedBy">
+      <End Role="userAccount" EntitySet="userAccounts" />
+      <End Role="dataReferralAcceptanceProcedure" EntitySet="dataReferralAcceptanceProcedures" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dataReferralProcedures_ModifiedBy" Association="Self.FK_dataReferralProcedures_ModifiedBy">
+      <End Role="userAccount" EntitySet="userAccounts" />
+      <End Role="dataReferralAcceptanceProcedure" EntitySet="dataReferralAcceptanceProcedures" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dataReferralCorrespondence_CreatedBy" Association="Self.FK_dataReferralCorrespondence_CreatedBy">
+      <End Role="userAccount" EntitySet="userAccounts" />
+      <End Role="dataReferralCorrespondence" EntitySet="dataReferralCorrespondences" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dataReferralCorrespondence_fromUserGUID" Association="Self.FK_dataReferralCorrespondence_fromUserGUID">
+      <End Role="userAccount" EntitySet="userAccounts" />
+      <End Role="dataReferralCorrespondence" EntitySet="dataReferralCorrespondences" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dataReferralCorrespondence_ModifiedBy" Association="Self.FK_dataReferralCorrespondence_ModifiedBy">
+      <End Role="userAccount" EntitySet="userAccounts" />
+      <End Role="dataReferralCorrespondence" EntitySet="dataReferralCorrespondences" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dataReferralCorrespondence_toUserGUID" Association="Self.FK_dataReferralCorrespondence_toUserGUID">
+      <End Role="userAccount" EntitySet="userAccounts" />
+      <End Role="dataReferralCorrespondence" EntitySet="dataReferralCorrespondences" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dataReferralCorrespondenceReceipent_ReferralCorrespondenceGUID" Association="Self.FK_dataReferralCorrespondenceReceipent_ReferralCorrespondenceGUID">
+      <End Role="dataReferralCorrespondence" EntitySet="dataReferralCorrespondences" />
+      <End Role="dataReferralCorrespondenceReceipent" EntitySet="dataReferralCorrespondenceReceipents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dataReferralCorrespondenceReceipent_fromUserGUID" Association="Self.FK_dataReferralCorrespondenceReceipent_fromUserGUID">
+      <End Role="userAccount" EntitySet="userAccounts" />
+      <End Role="dataReferralCorrespondenceReceipent" EntitySet="dataReferralCorrespondenceReceipents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dataReferralDetail_CreatedBy" Association="Self.FK_dataReferralDetail_CreatedBy">
+      <End Role="userAccount" EntitySet="userAccounts" />
+      <End Role="dataReferralDetail" EntitySet="dataReferralDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dataReferralDetail_ModifiedBy" Association="Self.FK_dataReferralDetail_ModifiedBy">
+      <End Role="userAccount" EntitySet="userAccounts" />
+      <End Role="dataReferralDetail" EntitySet="dataReferralDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dataReferralDiagnosis_CreatedDate" Association="Self.FK_dataReferralDiagnosis_CreatedDate">
+      <End Role="userAccount" EntitySet="userAccounts" />
+      <End Role="dataReferralDiagnosis" EntitySet="dataReferralDiagnosis" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dataReferralDiagnosis_ModifiedBy" Association="Self.FK_dataReferralDiagnosis_ModifiedBy">
+      <End Role="userAccount" EntitySet="userAccounts" />
+      <End Role="dataReferralDiagnosis" EntitySet="dataReferralDiagnosis" />
+    </AssociationSet>
+    <AssociationSet Name="FK_userDefinition_EmployeeJobTitleGUID" Association="Self.FK_userDefinition_EmployeeJobTitleGUID">
+      <End Role="EmployeeJobTitle" EntitySet="EmployeeJobTitles" />
+      <End Role="userAccount" EntitySet="userAccounts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__userPermi__UserG__14E61A24" Association="Self.FK__userPermi__UserG__14E61A24">
+      <End Role="userAccount" EntitySet="userAccounts" />
+      <End Role="userPermission" EntitySet="userPermissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_userParty_UserGUID" Association="Self.FK_userParty_UserGUID">
+      <End Role="userAccount" EntitySet="userAccounts" />
+      <End Role="userParty" EntitySet="userParties" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

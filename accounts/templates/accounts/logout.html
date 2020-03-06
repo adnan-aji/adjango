@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Home</title>
+  {% load static %}
+<link rel="stylesheet" href="{% static 'accounts/style.css' %}">
+    <script>
+        function print() {
+            let x = prompt("What is you're name", "");
+            while (x == "")
+                x = prompt("What is you're name please", "");
+            alert("Hello " + x);
+        }
+
+    </script>
+
+{% endblock %}
+{% block body %}
+    <h1>Welcome</h1>
+    <header class="jumbotron">
+        <div class="row row-header">
+            <h1 class="d-flex align-self-center">Welcome to logout page</h1>
+        </div>
+    </header>
+    <div class="container  d-flex  align-content-center">
+        <p class="align-self-center">Hello here were you're should login in</p>
+    </div>
+    <div>
+    <h2>Login</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+    <input type="submit" class="btn btn-success">Log in</input>
+
+    </form>
+    </div>
+    <h1>{{ myname }}</h1>
+    <ul>
+        {% for number in Numbers %}
+            <li>{{ number }}</li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

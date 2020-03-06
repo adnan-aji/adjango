@@ -1,0 +1,40 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/js/select2.min.js"></script>
+</head>
+<body>
+<select>
+
+</select>
+    <script>
+        var data = [{
+      id: 1,
+      text: '<div >Female</div>',
+      html: '<div >Female</div>',
+      title: 'enchancement'
+    },
+    {
+      id: 1,
+      text: '<div >Female</div>',
+              html: '<div >Male</div>',
+
+      title: 'bug'
+    }];
+
+    $("select").select2({
+      data: data,
+      escapeMarkup: function(markup) {
+        return markup;
+      },
+      templateResult: function(data) {
+        return data.html;
+      },
+      templateSelection: function(data) {
+        return data.text;
+      }
+    })
+    </script>
+</body>
+</html>

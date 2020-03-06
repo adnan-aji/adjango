@@ -1,0 +1,230 @@
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\ApplicationInsights.config
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\roslyn\csc.exe
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\roslyn\System.Collections.Immutable.dll
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\roslyn\System.Reflection.Metadata.dll
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\roslyn\vbc.exe
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\roslyn\VBCSCompiler.exe
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\roslyn\VBCSCompiler.exe.config
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\PortalWebApplication.dll.config
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\PortalWebApplication.dll
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\PortalWebApplication.pdb
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\ar\PortalWebApplication.resources.dll
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\Antlr3.Runtime.dll
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\AutoMapper.dll
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\EntityFramework.dll
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\EntityFramework.SqlServer.dll
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\Microsoft.AI.Agent.Intercept.dll
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\Microsoft.AI.DependencyCollector.dll
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\Microsoft.AI.Web.dll
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\Microsoft.AI.WindowsServer.dll
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\Microsoft.ApplicationInsights.dll
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\Microsoft.Web.Infrastructure.dll
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\Newtonsoft.Json.dll
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\System.Web.Helpers.dll
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\System.Web.Mvc.dll
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\System.Web.Optimization.dll
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\System.Web.Razor.dll
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\System.Web.WebPages.Deployment.dll
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\System.Web.WebPages.dll
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\System.Web.WebPages.Razor.dll
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\WebGrease.dll
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\AutoMapper.xml
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\EntityFramework.xml
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\EntityFramework.SqlServer.xml
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\Microsoft.AI.DependencyCollector.xml
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\Microsoft.AI.Web.xml
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\Microsoft.AI.WindowsServer.xml
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\Microsoft.ApplicationInsights.xml
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\System.Web.Helpers.xml
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\System.Web.Mvc.xml
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\System.Web.Optimization.xml
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\System.Web.Razor.xml
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\System.Web.WebPages.xml
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\System.Web.WebPages.Deployment.xml
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\System.Web.WebPages.Razor.xml
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\Antlr3.Runtime.pdb
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\Newtonsoft.Json.xml
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\obj\Debug\PortalWebApplication.Resource.CommonRes.resources
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\obj\Debug\PortalWebApplication.Resource.ReferralFields.resources
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\obj\Debug\PortalWebApplication.Resource.CommonRes .ar.resources
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\obj\Debug\PortalWebApplication.Resource.ReferralFields.ar.resources
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\obj\Debug\PortalWebApplication.csproj.GenerateResource.Cache
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\obj\Debug\ar\PortalWebApplication.resources.dll
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\obj\Debug\PortalWebApplication.dll
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\obj\Debug\PortalWebApplication.pdb
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\obj\Debug\PortalWebApplication.csprojResolveAssemblyReference.cache
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\bin\ApplicationInsights.config
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\bin\roslyn\csc.exe
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\bin\roslyn\System.Collections.Immutable.dll
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\bin\roslyn\System.Reflection.Metadata.dll
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\bin\roslyn\vbc.exe
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\bin\roslyn\VBCSCompiler.exe
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\bin\roslyn\VBCSCompiler.exe.config
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\bin\PortalWebApplication.dll.config
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\bin\PortalWebApplication.dll
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\bin\PortalWebApplication.pdb
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\bin\ar\PortalWebApplication.resources.dll
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\bin\Antlr3.Runtime.dll
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\bin\AutoMapper.dll
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\bin\EntityFramework.dll
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\bin\EntityFramework.SqlServer.dll
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\bin\Microsoft.AI.Agent.Intercept.dll
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\bin\Microsoft.AI.DependencyCollector.dll
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\bin\Microsoft.AI.Web.dll
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\bin\Microsoft.AI.WindowsServer.dll
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\bin\Microsoft.ApplicationInsights.dll
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\bin\Microsoft.Web.Infrastructure.dll
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\bin\Newtonsoft.Json.dll
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\bin\System.Web.Helpers.dll
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\bin\System.Web.Mvc.dll
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\bin\System.Web.Optimization.dll
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\bin\System.Web.Razor.dll
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\bin\System.Web.WebPages.Deployment.dll
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\bin\System.Web.WebPages.dll
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\bin\System.Web.WebPages.Razor.dll
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\bin\WebGrease.dll
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\bin\AutoMapper.xml
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\bin\EntityFramework.xml
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\bin\EntityFramework.SqlServer.xml
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\bin\Microsoft.AI.DependencyCollector.xml
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\bin\Microsoft.AI.Web.xml
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\bin\Microsoft.AI.WindowsServer.xml
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\bin\Microsoft.ApplicationInsights.xml
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\bin\System.Web.Helpers.xml
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\bin\System.Web.Mvc.xml
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\bin\System.Web.Optimization.xml
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\bin\System.Web.Razor.xml
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\bin\System.Web.WebPages.xml
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\bin\System.Web.WebPages.Deployment.xml
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\bin\System.Web.WebPages.Razor.xml
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\bin\Antlr3.Runtime.pdb
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\bin\Newtonsoft.Json.xml
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\obj\Debug\PortalWebApplication.csprojResolveAssemblyReference.cache
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\obj\Debug\PortalWebApplication.Resource.CommonRes.resources
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\obj\Debug\PortalWebApplication.Resource.ReferralFields.resources
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\obj\Debug\PortalWebApplication.Resource.CommonRes .ar.resources
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\obj\Debug\PortalWebApplication.Resource.ReferralFields.ar.resources
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\obj\Debug\PortalWebApplication.csproj.GenerateResource.Cache
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\obj\Debug\ar\PortalWebApplication.resources.dll
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\obj\Debug\PortalWebApplication.dll
+D:\MyNew\MedicalCare\Project\Portal - Copy (4)\PortalWebApplication\obj\Debug\PortalWebApplication.pdb
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\ApplicationInsights.config
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\roslyn\csc.exe
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\roslyn\System.Collections.Immutable.dll
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\roslyn\System.Reflection.Metadata.dll
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\roslyn\vbc.exe
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\roslyn\VBCSCompiler.exe
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\roslyn\VBCSCompiler.exe.config
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\PortalWebApplication.dll.config
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\PortalWebApplication.dll
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\PortalWebApplication.pdb
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\ar\PortalWebApplication.resources.dll
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\Antlr3.Runtime.dll
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\AutoMapper.dll
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\EntityFramework.dll
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\EntityFramework.SqlServer.dll
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\Microsoft.AI.Agent.Intercept.dll
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\Microsoft.AI.DependencyCollector.dll
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\Microsoft.AI.Web.dll
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\Microsoft.AI.WindowsServer.dll
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\Microsoft.ApplicationInsights.dll
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\Microsoft.Web.Infrastructure.dll
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\Newtonsoft.Json.dll
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\System.Web.Helpers.dll
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\System.Web.Mvc.dll
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\System.Web.Optimization.dll
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\System.Web.Razor.dll
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\System.Web.WebPages.Deployment.dll
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\System.Web.WebPages.dll
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\System.Web.WebPages.Razor.dll
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\WebGrease.dll
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\AutoMapper.xml
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\EntityFramework.xml
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\EntityFramework.SqlServer.xml
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\Microsoft.AI.DependencyCollector.xml
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\Microsoft.AI.Web.xml
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\Microsoft.AI.WindowsServer.xml
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\Microsoft.ApplicationInsights.xml
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\System.Web.Helpers.xml
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\System.Web.Mvc.xml
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\System.Web.Optimization.xml
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\System.Web.Razor.xml
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\System.Web.WebPages.xml
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\System.Web.WebPages.Deployment.xml
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\System.Web.WebPages.Razor.xml
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\Antlr3.Runtime.pdb
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\Newtonsoft.Json.xml
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\obj\Debug\PortalWebApplication.Resource.CommonRes.resources
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\obj\Debug\PortalWebApplication.Resource.ReferralFields.resources
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\obj\Debug\PortalWebApplication.Resource.CommonRes .ar.resources
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\obj\Debug\PortalWebApplication.Resource.ReferralFields.ar.resources
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\obj\Debug\PortalWebApplication.csproj.GenerateResource.Cache
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\obj\Debug\ar\PortalWebApplication.resources.dll
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\obj\Debug\PortalWebApplication.dll
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\obj\Debug\PortalWebApplication.pdb
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\ReportViewerForMvc.dll
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\Microsoft.ReportViewer.WebForms.dll
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\Microsoft.SqlServer.Types.dll
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\de\Microsoft.SqlServer.Types.resources.dll
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\es\Microsoft.SqlServer.Types.resources.dll
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\fr\Microsoft.SqlServer.Types.resources.dll
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\it\Microsoft.SqlServer.Types.resources.dll
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\ja\Microsoft.SqlServer.Types.resources.dll
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\ko\Microsoft.SqlServer.Types.resources.dll
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\pt\Microsoft.SqlServer.Types.resources.dll
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\ru\Microsoft.SqlServer.Types.resources.dll
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\zh-Hans\Microsoft.SqlServer.Types.resources.dll
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\zh-Hant\Microsoft.SqlServer.Types.resources.dll
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\bin\Microsoft.ReportViewer.Common.dll
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\obj\Debug\RdlCompile.cache
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\obj\Debug\RdlCompile.compiled
+D:\MyNew\MedicalCare\Project\Before Dist\Portal\PortalWebApplication\obj\Debug\PortalWebApplication.csprojResolveAssemblyReference.cache
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\Microsoft.ReportViewer.Common.dll
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\Microsoft.ReportViewer.WebForms.dll
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\ReportViewerForMvc.dll
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\Microsoft.SqlServer.Types.dll
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\de\Microsoft.SqlServer.Types.resources.dll
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\es\Microsoft.SqlServer.Types.resources.dll
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\fr\Microsoft.SqlServer.Types.resources.dll
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\it\Microsoft.SqlServer.Types.resources.dll
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\ja\Microsoft.SqlServer.Types.resources.dll
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\ko\Microsoft.SqlServer.Types.resources.dll
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\pt\Microsoft.SqlServer.Types.resources.dll
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\ru\Microsoft.SqlServer.Types.resources.dll
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\zh-Hans\Microsoft.SqlServer.Types.resources.dll
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\bin\zh-Hant\Microsoft.SqlServer.Types.resources.dll
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\obj\Debug\RdlCompile.cache
+D:\MyNew\MedicalCare\Project\Portal\PortalWebApplication\obj\Debug\RdlCompile.compiled

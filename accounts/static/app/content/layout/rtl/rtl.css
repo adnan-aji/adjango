@@ -1,0 +1,13 @@
+﻿.sidebar-menu li a .fa-angle-left,
+.sidebar-menu li .label, .sidebar-menu li .badge {
+	margin-top: -15px !important;
+    
+}
+input{
+    direction:rtl;
+}
+
+form .error {
+  color: #ff0000;
+}
+

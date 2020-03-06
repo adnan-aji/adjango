@@ -1,0 +1,610 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MCSModelStoreContainer" CdmEntityContainer="MCSEntities">
+    <EntitySetMapping Name="codeActions">
+      <EntityTypeMapping TypeName="MCSModel.codeAction">
+        <MappingFragment StoreEntitySet="codeAction">
+          <ScalarProperty Name="ActionGUID" ColumnName="ActionGUID" />
+          <ScalarProperty Name="ActionCategoryGUID" ColumnName="ActionCategoryGUID" />
+          <ScalarProperty Name="ActionID" ColumnName="ActionID" />
+          <ScalarProperty Name="ActionName" ColumnName="ActionName" />
+          <ScalarProperty Name="ActionDescription" ColumnName="ActionDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="codeActionCategories">
+      <EntityTypeMapping TypeName="MCSModel.codeActionCategory">
+        <MappingFragment StoreEntitySet="codeActionCategory">
+          <ScalarProperty Name="ActionCategoryGUID" ColumnName="ActionCategoryGUID" />
+          <ScalarProperty Name="ActionCategoryID" ColumnName="ActionCategoryID" />
+          <ScalarProperty Name="ApplicationGUID" ColumnName="ApplicationGUID" />
+          <ScalarProperty Name="ActionCategoryName" ColumnName="ActionCategoryName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="codeActionCategoryFactors">
+      <EntityTypeMapping TypeName="MCSModel.codeActionCategoryFactor">
+        <MappingFragment StoreEntitySet="codeActionCategoryFactor">
+          <ScalarProperty Name="ActionCategoryFactor" ColumnName="ActionCategoryFactor" />
+          <ScalarProperty Name="ActionCategoryGUID" ColumnName="ActionCategoryGUID" />
+          <ScalarProperty Name="FactorGUID" ColumnName="FactorGUID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="codeApplications">
+      <EntityTypeMapping TypeName="MCSModel.codeApplication">
+        <MappingFragment StoreEntitySet="codeApplication">
+          <ScalarProperty Name="ApplicationGUID" ColumnName="ApplicationGUID" />
+          <ScalarProperty Name="ApplicationID" ColumnName="ApplicationID" />
+          <ScalarProperty Name="ApplicationName" ColumnName="ApplicationName" />
+          <ScalarProperty Name="ApplicationDescription" ColumnName="ApplicationDescription" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="codeFactors">
+      <EntityTypeMapping TypeName="MCSModel.codeFactor">
+        <MappingFragment StoreEntitySet="codeFactor">
+          <ScalarProperty Name="FactorGUID" ColumnName="FactorGUID" />
+          <ScalarProperty Name="FactorCode" ColumnName="FactorCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="codeHospitals">
+      <EntityTypeMapping TypeName="MCSModel.codeHospital">
+        <MappingFragment StoreEntitySet="codeHospital">
+          <ScalarProperty Name="HospitalGUID" ColumnName="HospitalGUID" />
+          <ScalarProperty Name="HospitalDescription" ColumnName="HospitalDescription" />
+          <ScalarProperty Name="PartyGUID" ColumnName="PartyGUID" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Phones" ColumnName="Phones" />
+          <ScalarProperty Name="HospitalTypeGUID" ColumnName="HospitalTypeGUID" />
+          <ScalarProperty Name="IsContracted" ColumnName="IsContracted" />
+          <ScalarProperty Name="ContractDate" ColumnName="ContractDate" />
+          <ScalarProperty Name="ContractEndDate" ColumnName="ContractEndDate" />
+          <ScalarProperty Name="IsCostByUnit" ColumnName="IsCostByUnit" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="codeHospitalBudgets">
+      <EntityTypeMapping TypeName="MCSModel.codeHospitalBudget">
+        <MappingFragment StoreEntitySet="codeHospitalBudget">
+          <ScalarProperty Name="BudgetEndDate" ColumnName="BudgetEndDate" />
+          <ScalarProperty Name="BudgetStartDate" ColumnName="BudgetStartDate" />
+          <ScalarProperty Name="HospitalBudgetGUID" ColumnName="HospitalBudgetGUID" />
+          <ScalarProperty Name="HospitalGUID" ColumnName="HospitalGUID" />
+          <ScalarProperty Name="BudgetValue" ColumnName="BudgetValue" />
+          <ScalarProperty Name="BudgetExtend" ColumnName="BudgetExtend" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="codeHospitalLanguages">
+      <EntityTypeMapping TypeName="MCSModel.codeHospitalLanguage">
+        <MappingFragment StoreEntitySet="codeHospitalLanguage">
+          <ScalarProperty Name="HospitalLanguageGUID" ColumnName="HospitalLanguageGUID" />
+          <ScalarProperty Name="HospitalGUID" ColumnName="HospitalGUID" />
+          <ScalarProperty Name="LanaguageID" ColumnName="LanaguageID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="codeHospitalTypes">
+      <EntityTypeMapping TypeName="MCSModel.codeHospitalType">
+        <MappingFragment StoreEntitySet="codeHospitalType">
+          <ScalarProperty Name="HospitalTypeGUID" ColumnName="HospitalTypeGUID" />
+          <ScalarProperty Name="HospitalTypeDescription" ColumnName="HospitalTypeDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="codeHospitalTypeLanguages">
+      <EntityTypeMapping TypeName="MCSModel.codeHospitalTypeLanguage">
+        <MappingFragment StoreEntitySet="codeHospitalTypeLanguage">
+          <ScalarProperty Name="HospitalTypeLanguageGUID" ColumnName="HospitalTypeLanguageGUID" />
+          <ScalarProperty Name="HospitalTypeGUID" ColumnName="HospitalTypeGUID" />
+          <ScalarProperty Name="LanaguageID" ColumnName="LanaguageID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="codeICDTens">
+      <EntityTypeMapping TypeName="MCSModel.codeICDTen">
+        <MappingFragment StoreEntitySet="codeICDTen">
+          <ScalarProperty Name="ICDTenGUID" ColumnName="ICDTenGUID" />
+          <ScalarProperty Name="ICDTenDescription" ColumnName="ICDTenDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="codeICDTenLanguages">
+      <EntityTypeMapping TypeName="MCSModel.codeICDTenLanguage">
+        <MappingFragment StoreEntitySet="codeICDTenLanguage">
+          <ScalarProperty Name="ICDTenGUIDLanguageGUID" ColumnName="ICDTenGUIDLanguageGUID" />
+          <ScalarProperty Name="ICDTenGUID" ColumnName="ICDTenGUID" />
+          <ScalarProperty Name="LanaguageID" ColumnName="LanaguageID" />
+          <ScalarProperty Name="ICDTencodeName" ColumnName="ICDTencodeName" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="codeLanguages">
+      <EntityTypeMapping TypeName="MCSModel.codeLanguage">
+        <MappingFragment StoreEntitySet="codeLanguage">
+          <ScalarProperty Name="LanaguageID" ColumnName="LanaguageID" />
+          <ScalarProperty Name="LanguageISO2" ColumnName="LanguageISO2" />
+          <ScalarProperty Name="LanguageISO3" ColumnName="LanguageISO3" />
+          <ScalarProperty Name="LanguageNameEN" ColumnName="LanguageNameEN" />
+          <ScalarProperty Name="LanguageNameLocal" ColumnName="LanguageNameLocal" />
+          <ScalarProperty Name="Direction" ColumnName="Direction" />
+          <ScalarProperty Name="SortID" ColumnName="SortID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="codeLocations">
+      <EntityTypeMapping TypeName="MCSModel.codeLocation">
+        <MappingFragment StoreEntitySet="codeLocation">
+          <ScalarProperty Name="LocationGUID" ColumnName="LocationGUID" />
+          <ScalarProperty Name="LocationParentGUID" ColumnName="LocationParentGUID" />
+          <ScalarProperty Name="Locationlevel" ColumnName="Locationlevel" />
+          <ScalarProperty Name="Latidude" ColumnName="Latidude" />
+          <ScalarProperty Name="Longtiude" ColumnName="Longtiude" />
+          <ScalarProperty Name="LocationCode" ColumnName="LocationCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="codeLocationLanguages">
+      <EntityTypeMapping TypeName="MCSModel.codeLocationLanguage">
+        <MappingFragment StoreEntitySet="codeLocationLanguage">
+          <ScalarProperty Name="LocationLanguageGUID" ColumnName="LocationLanguageGUID" />
+          <ScalarProperty Name="LocationGUID" ColumnName="LocationGUID" />
+          <ScalarProperty Name="LanaguageID" ColumnName="LanaguageID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="codeMedicalProcedures">
+      <EntityTypeMapping TypeName="MCSModel.codeMedicalProcedure">
+        <MappingFragment StoreEntitySet="codeMedicalProcedure">
+          <ScalarProperty Name="MedicalProcedureGUID" ColumnName="MedicalProcedureGUID" />
+          <ScalarProperty Name="MedicalProcedureDescription" ColumnName="MedicalProcedureDescription" />
+          <ScalarProperty Name="ParentGUID" ColumnName="ParentGUID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="codeMedicalProcedureLanguages">
+      <EntityTypeMapping TypeName="MCSModel.codeMedicalProcedureLanguage">
+        <MappingFragment StoreEntitySet="codeMedicalProcedureLanguage">
+          <ScalarProperty Name="MedicalProcedureLanguageGUID" ColumnName="MedicalProcedureLanguageGUID" />
+          <ScalarProperty Name="MedicalProcedureGUID" ColumnName="MedicalProcedureGUID" />
+          <ScalarProperty Name="LanaguageID" ColumnName="LanaguageID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="codeOrgnizations">
+      <EntityTypeMapping TypeName="MCSModel.codeOrgnization">
+        <MappingFragment StoreEntitySet="codeOrgnization">
+          <ScalarProperty Name="OrgnizationGUID" ColumnName="OrgnizationGUID" />
+          <ScalarProperty Name="OrgnizationDescription" ColumnName="OrgnizationDescription" />
+          <ScalarProperty Name="PartyGUID" ColumnName="PartyGUID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="codePartners">
+      <EntityTypeMapping TypeName="MCSModel.codePartner">
+        <MappingFragment StoreEntitySet="codePartner">
+          <ScalarProperty Name="PartnerGUID" ColumnName="PartnerGUID" />
+          <ScalarProperty Name="PartnerDescription" ColumnName="PartnerDescription" />
+          <ScalarProperty Name="PartyGUID" ColumnName="PartyGUID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="codeParties">
+      <EntityTypeMapping TypeName="MCSModel.codeParty">
+        <MappingFragment StoreEntitySet="codeParty">
+          <ScalarProperty Name="PartyGUID" ColumnName="PartyGUID" />
+          <ScalarProperty Name="PartyTypeGUID" ColumnName="PartyTypeGUID" />
+          <ScalarProperty Name="PartyDescription" ColumnName="PartyDescription" />
+          <ScalarProperty Name="LocationGUID" ColumnName="LocationGUID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="codePartyLanguages">
+      <EntityTypeMapping TypeName="MCSModel.codePartyLanguage">
+        <MappingFragment StoreEntitySet="codePartyLanguage">
+          <ScalarProperty Name="PartyLanguageGUID" ColumnName="PartyLanguageGUID" />
+          <ScalarProperty Name="PartyGUID" ColumnName="PartyGUID" />
+          <ScalarProperty Name="LanaguageID" ColumnName="LanaguageID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="codePartyTypes">
+      <EntityTypeMapping TypeName="MCSModel.codePartyType">
+        <MappingFragment StoreEntitySet="codePartyType">
+          <ScalarProperty Name="PartyTypeGUID" ColumnName="PartyTypeGUID" />
+          <ScalarProperty Name="PartyTypeDescription" ColumnName="PartyTypeDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="codePartyTypeLanguages">
+      <EntityTypeMapping TypeName="MCSModel.codePartyTypeLanguage">
+        <MappingFragment StoreEntitySet="codePartyTypeLanguage">
+          <ScalarProperty Name="PartyTypeLanguageGUID" ColumnName="PartyTypeLanguageGUID" />
+          <ScalarProperty Name="PartyTypeGUID" ColumnName="PartyTypeGUID" />
+          <ScalarProperty Name="LanaguageID" ColumnName="LanaguageID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="codePatientStatus">
+      <EntityTypeMapping TypeName="MCSModel.codePatientStatu">
+        <MappingFragment StoreEntitySet="codePatientStatus">
+          <ScalarProperty Name="PatientStatusGUID" ColumnName="PatientStatusGUID" />
+          <ScalarProperty Name="PatientStatusDescription" ColumnName="PatientStatusDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="codePatientStatusLanguages">
+      <EntityTypeMapping TypeName="MCSModel.codePatientStatusLanguage">
+        <MappingFragment StoreEntitySet="codePatientStatusLanguage">
+          <ScalarProperty Name="MedicalProcedureLanguageGUID" ColumnName="MedicalProcedureLanguageGUID" />
+          <ScalarProperty Name="PatientStatusGUID" ColumnName="PatientStatusGUID" />
+          <ScalarProperty Name="LanaguageID" ColumnName="LanaguageID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="codePatientTypes">
+      <EntityTypeMapping TypeName="MCSModel.codePatientType">
+        <MappingFragment StoreEntitySet="codePatientType">
+          <ScalarProperty Name="PatientTypeGUID" ColumnName="PatientTypeGUID" />
+          <ScalarProperty Name="PatientTypeDescription" ColumnName="PatientTypeDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="codePatientTypeLanguages">
+      <EntityTypeMapping TypeName="MCSModel.codePatientTypeLanguage">
+        <MappingFragment StoreEntitySet="codePatientTypeLanguage">
+          <ScalarProperty Name="PatientTypeLangugeGUID" ColumnName="PatientTypeLangugeGUID" />
+          <ScalarProperty Name="PatientTypeGUID" ColumnName="PatientTypeGUID" />
+          <ScalarProperty Name="LanaguageID" ColumnName="LanaguageID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="codeReferralStatus">
+      <EntityTypeMapping TypeName="MCSModel.codeReferralStatu">
+        <MappingFragment StoreEntitySet="codeReferralStatus">
+          <ScalarProperty Name="ReferralStatusGUID" ColumnName="ReferralStatusGUID" />
+          <ScalarProperty Name="ReferralStatusDescription" ColumnName="ReferralStatusDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="codeReferralStatusLanguages">
+      <EntityTypeMapping TypeName="MCSModel.codeReferralStatusLanguage">
+        <MappingFragment StoreEntitySet="codeReferralStatusLanguage">
+          <ScalarProperty Name="ReferralStatusLangugeGUID" ColumnName="ReferralStatusLangugeGUID" />
+          <ScalarProperty Name="ReferralStatusGUID" ColumnName="ReferralStatusGUID" />
+          <ScalarProperty Name="LanaguageID" ColumnName="LanaguageID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="codeReferralTypes">
+      <EntityTypeMapping TypeName="MCSModel.codeReferralType">
+        <MappingFragment StoreEntitySet="codeReferralType">
+          <ScalarProperty Name="ReferralTypeGUID" ColumnName="ReferralTypeGUID" />
+          <ScalarProperty Name="ReferralTypeDescription" ColumnName="ReferralTypeDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="codeReferralTypeLanguages">
+      <EntityTypeMapping TypeName="MCSModel.codeReferralTypeLanguage">
+        <MappingFragment StoreEntitySet="codeReferralTypeLanguage">
+          <ScalarProperty Name="ReferralTypeLangugeGUID" ColumnName="ReferralTypeLangugeGUID" />
+          <ScalarProperty Name="ReferralTypeGUID" ColumnName="ReferralTypeGUID" />
+          <ScalarProperty Name="LanaguageID" ColumnName="LanaguageID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="configMedicalSystems">
+      <EntityTypeMapping TypeName="MCSModel.configMedicalSystem">
+        <MappingFragment StoreEntitySet="configMedicalSystem">
+          <ScalarProperty Name="MedicalConfigGUID" ColumnName="MedicalConfigGUID" />
+          <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+          <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+          <ScalarProperty Name="PatientDiscountRate" ColumnName="PatientDiscountRate" />
+          <ScalarProperty Name="AllowedReferralCostUNHCR" ColumnName="AllowedReferralCostUNHCR" />
+          <ScalarProperty Name="AllowedReferralCostPartner" ColumnName="AllowedReferralCostPartner" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dataMedicalProcedureHospitalCosts">
+      <EntityTypeMapping TypeName="MCSModel.dataMedicalProcedureHospitalCost">
+        <MappingFragment StoreEntitySet="dataMedicalProcedureHospitalCost">
+          <ScalarProperty Name="MedicalProcedureHospitalCostGUID" ColumnName="MedicalProcedureHospitalCostGUID" />
+          <ScalarProperty Name="MedicalProcedureGUID" ColumnName="MedicalProcedureGUID" />
+          <ScalarProperty Name="HospitalGUID" ColumnName="HospitalGUID" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="ActivationDate" ColumnName="ActivationDate" />
+          <ScalarProperty Name="DeActionDate" ColumnName="DeActionDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dataPatients">
+      <EntityTypeMapping TypeName="MCSModel.dataPatient">
+        <MappingFragment StoreEntitySet="dataPatient">
+          <ScalarProperty Name="PatientGUID" ColumnName="PatientGUID" />
+          <ScalarProperty Name="IndivdualGUID" ColumnName="IndivdualGUID" />
+          <ScalarProperty Name="CaseNumber" ColumnName="CaseNumber" />
+          <ScalarProperty Name="IndividualNumber" ColumnName="IndividualNumber" />
+          <ScalarProperty Name="PatientTypeGUID" ColumnName="PatientTypeGUID" />
+          <ScalarProperty Name="OrigionCountryGUID" ColumnName="OrigionCountryGUID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="MotherName" ColumnName="MotherName" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="VerbalName" ColumnName="VerbalName" />
+          <ScalarProperty Name="Phones" ColumnName="Phones" />
+          <ScalarProperty Name="PatientAddress" ColumnName="PatientAddress" />
+          <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
+          <ScalarProperty Name="RegistrationNumber" ColumnName="RegistrationNumber" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dataReferrals">
+      <EntityTypeMapping TypeName="MCSModel.dataReferral">
+        <MappingFragment StoreEntitySet="dataReferral">
+          <ScalarProperty Name="ReferralGUID" ColumnName="ReferralGUID" />
+          <ScalarProperty Name="ReferralDate" ColumnName="ReferralDate" />
+          <ScalarProperty Name="ReferralNumber" ColumnName="ReferralNumber" />
+          <ScalarProperty Name="ReferralSourceGUID" ColumnName="ReferralSourceGUID" />
+          <ScalarProperty Name="HospitalGUID" ColumnName="HospitalGUID" />
+          <ScalarProperty Name="PatientGUID" ColumnName="PatientGUID" />
+          <ScalarProperty Name="ReferralTypeGUID" ColumnName="ReferralTypeGUID" />
+          <ScalarProperty Name="ReferralStatusGUID" ColumnName="ReferralStatusGUID" />
+          <ScalarProperty Name="ExpectedCost" ColumnName="ExpectedCost" />
+          <ScalarProperty Name="ApprovedCost" ColumnName="ApprovedCost" />
+          <ScalarProperty Name="FinalCost" ColumnName="FinalCost" />
+          <ScalarProperty Name="CommitteComments" ColumnName="CommitteComments" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="PatientDiscountRate" ColumnName="PatientDiscountRate" />
+          <ScalarProperty Name="PatientActualCost" ColumnName="PatientActualCost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dataReferralAcceptances">
+      <EntityTypeMapping TypeName="MCSModel.dataReferralAcceptance">
+        <MappingFragment StoreEntitySet="dataReferralAcceptance">
+          <ScalarProperty Name="ReferralAcceptanceGUID" ColumnName="ReferralAcceptanceGUID" />
+          <ScalarProperty Name="ReferralGUID" ColumnName="ReferralGUID" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="DepartureDate" ColumnName="DepartureDate" />
+          <ScalarProperty Name="IsWithStay" ColumnName="IsWithStay" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="PatientStatusGUID" ColumnName="PatientStatusGUID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dataReferralAcceptanceDiagnosis">
+      <EntityTypeMapping TypeName="MCSModel.dataReferralAcceptanceDiagnosi">
+        <MappingFragment StoreEntitySet="dataReferralAcceptanceDiagnosis">
+          <ScalarProperty Name="ReferralAcceptanceDiagnosisGUID" ColumnName="ReferralAcceptanceDiagnosisGUID" />
+          <ScalarProperty Name="ReferralAcceptanceGUID" ColumnName="ReferralAcceptanceGUID" />
+          <ScalarProperty Name="ICDTenGUID" ColumnName="ICDTenGUID" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dataReferralAcceptanceProcedures">
+      <EntityTypeMapping TypeName="MCSModel.dataReferralAcceptanceProcedure">
+        <MappingFragment StoreEntitySet="dataReferralAcceptanceProcedure">
+          <ScalarProperty Name="ReferralAcceptanceProcedureGUID" ColumnName="ReferralAcceptanceProcedureGUID" />
+          <ScalarProperty Name="ReferralAcceptanceGUID" ColumnName="ReferralAcceptanceGUID" />
+          <ScalarProperty Name="MedicalProcedureGUID" ColumnName="MedicalProcedureGUID" />
+          <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+          <ScalarProperty Name="UNHCRComments" ColumnName="UNHCRComments" />
+          <ScalarProperty Name="HospitalCost" ColumnName="HospitalCost" />
+          <ScalarProperty Name="ApprovedCost" ColumnName="ApprovedCost" />
+          <ScalarProperty Name="ProcedureDate" ColumnName="ProcedureDate" />
+          <ScalarProperty Name="DoctorName" ColumnName="DoctorName" />
+          <ScalarProperty Name="HospitalComments" ColumnName="HospitalComments" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dataReferralCorrespondences">
+      <EntityTypeMapping TypeName="MCSModel.dataReferralCorrespondence">
+        <MappingFragment StoreEntitySet="dataReferralCorrespondence">
+          <ScalarProperty Name="ReferralCorrespondenceGUID" ColumnName="ReferralCorrespondenceGUID" />
+          <ScalarProperty Name="ReferralGUID" ColumnName="ReferralGUID" />
+          <ScalarProperty Name="FromUserGUID" ColumnName="FromUserGUID" />
+          <ScalarProperty Name="ToUserGUID" ColumnName="ToUserGUID" />
+          <ScalarProperty Name="SendDate" ColumnName="SendDate" />
+          <ScalarProperty Name="RecieveDate" ColumnName="RecieveDate" />
+          <ScalarProperty Name="CorrespondenceTitle" ColumnName="CorrespondenceTitle" />
+          <ScalarProperty Name="CorrespondenceText" ColumnName="CorrespondenceText" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dataReferralCorrespondenceReceipents">
+      <EntityTypeMapping TypeName="MCSModel.dataReferralCorrespondenceReceipent">
+        <MappingFragment StoreEntitySet="dataReferralCorrespondenceReceipent">
+          <ScalarProperty Name="ReferralCorrespondenceReceipent" ColumnName="ReferralCorrespondenceReceipent" />
+          <ScalarProperty Name="ReferralCorrespondenceGUID" ColumnName="ReferralCorrespondenceGUID" />
+          <ScalarProperty Name="ToUserGUID" ColumnName="ToUserGUID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dataReferralDetails">
+      <EntityTypeMapping TypeName="MCSModel.dataReferralDetail">
+        <MappingFragment StoreEntitySet="dataReferralDetail">
+          <ScalarProperty Name="ReferralDetailGUID" ColumnName="ReferralDetailGUID" />
+          <ScalarProperty Name="ReferralGUID" ColumnName="ReferralGUID" />
+          <ScalarProperty Name="MedicalProcedureGUID" ColumnName="MedicalProcedureGUID" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dataReferralDiagnosis">
+      <EntityTypeMapping TypeName="MCSModel.dataReferralDiagnosi">
+        <MappingFragment StoreEntitySet="dataReferralDiagnosis">
+          <ScalarProperty Name="ReferralDiagnosisGUID" ColumnName="ReferralDiagnosisGUID" />
+          <ScalarProperty Name="ReferralGUID" ColumnName="ReferralGUID" />
+          <ScalarProperty Name="ICDTenGUID" ColumnName="ICDTenGUID" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmployeeJobTitles">
+      <EntityTypeMapping TypeName="MCSModel.EmployeeJobTitle">
+        <MappingFragment StoreEntitySet="EmployeeJobTitle">
+          <ScalarProperty Name="EmployeeJobTitleGUID" ColumnName="EmployeeJobTitleGUID" />
+          <ScalarProperty Name="EmployeeJobTitleDescription" ColumnName="EmployeeJobTitleDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="proGresIndividuals">
+      <EntityTypeMapping TypeName="MCSModel.proGresIndividual">
+        <MappingFragment StoreEntitySet="proGresIndividual">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="CaseNumber" ColumnName="CaseNumber" />
+          <ScalarProperty Name="IndividualNumber" ColumnName="IndividualNumber" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="OrigionCountry" ColumnName="OrigionCountry" />
+          <ScalarProperty Name="RefugeeStatus" ColumnName="RefugeeStatus" />
+          <ScalarProperty Name="ProcessStatus" ColumnName="ProcessStatus" />
+          <ScalarProperty Name="sexCode" ColumnName="sexCode" />
+          <ScalarProperty Name="pa_loc1" ColumnName="pa_loc1" />
+          <ScalarProperty Name="pa_loc2" ColumnName="pa_loc2" />
+          <ScalarProperty Name="IndividualGUID" ColumnName="IndividualGUID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userAccounts">
+      <EntityTypeMapping TypeName="MCSModel.userAccount">
+        <MappingFragment StoreEntitySet="userAccount">
+          <ScalarProperty Name="UserGUID" ColumnName="UserGUID" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="CurrentPassword" ColumnName="CurrentPassword" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="isLocked" ColumnName="isLocked" />
+          <ScalarProperty Name="PartyGUID" ColumnName="PartyGUID" />
+          <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+          <ScalarProperty Name="userJobTitle" ColumnName="userJobTitle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userParties">
+      <EntityTypeMapping TypeName="MCSModel.userParty">
+        <MappingFragment StoreEntitySet="userParty">
+          <ScalarProperty Name="userPartyGUID" ColumnName="userPartyGUID" />
+          <ScalarProperty Name="PartyGUID" ColumnName="PartyGUID" />
+          <ScalarProperty Name="UserGUID" ColumnName="UserGUID" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userPermissions">
+      <EntityTypeMapping TypeName="MCSModel.userPermission">
+        <MappingFragment StoreEntitySet="userPermission">
+          <ScalarProperty Name="PermissionGUID" ColumnName="PermissionGUID" />
+          <ScalarProperty Name="UserGUID" ColumnName="UserGUID" />
+          <ScalarProperty Name="ActionGUID" ColumnName="ActionGUID" />
+          <ScalarProperty Name="FactorGUID" ColumnName="FactorGUID" />
+          <ScalarProperty Name="FactorValue" ColumnName="FactorValue" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="v_ActionCatgoryFactor">
+      <EntityTypeMapping TypeName="MCSModel.v_ActionCatgoryFactor">
+        <MappingFragment StoreEntitySet="v_ActionCatgoryFactor">
+          <ScalarProperty Name="RowId" ColumnName="RowId" />
+          <ScalarProperty Name="ActionGUID" ColumnName="ActionGUID" />
+          <ScalarProperty Name="ActionName" ColumnName="ActionName" />
+          <ScalarProperty Name="ActionID" ColumnName="ActionID" />
+          <ScalarProperty Name="ActionCategoryGUID" ColumnName="ActionCategoryGUID" />
+          <ScalarProperty Name="ActionCategoryName" ColumnName="ActionCategoryName" />
+          <ScalarProperty Name="FactorGUID" ColumnName="FactorGUID" />
+          <ScalarProperty Name="FactorCode" ColumnName="FactorCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="v_FactorValue">
+      <EntityTypeMapping TypeName="MCSModel.v_FactorValue">
+        <MappingFragment StoreEntitySet="v_FactorValue">
+          <ScalarProperty Name="RowId" ColumnName="RowId" />
+          <ScalarProperty Name="FactorValueGUID" ColumnName="FactorValueGUID" />
+          <ScalarProperty Name="FactorName" ColumnName="FactorName" />
+          <ScalarProperty Name="FactorGUID" ColumnName="FactorGUID" />
+          <ScalarProperty Name="FactorCode" ColumnName="FactorCode" />
+          <ScalarProperty Name="ActionCategoryGUID" ColumnName="ActionCategoryGUID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vReferralRequests">
+      <EntityTypeMapping TypeName="MCSModel.vReferralRequest">
+        <MappingFragment StoreEntitySet="vReferralRequest">
+          <ScalarProperty Name="RowId" ColumnName="RowId" />
+          <ScalarProperty Name="ReferralGUID" ColumnName="ReferralGUID" />
+          <ScalarProperty Name="ReferralNumber" ColumnName="ReferralNumber" />
+          <ScalarProperty Name="ExpectedCost" ColumnName="ExpectedCost" />
+          <ScalarProperty Name="ReferralCreatedBy" ColumnName="ReferralCreatedBy" />
+          <ScalarProperty Name="ReferralDate" ColumnName="ReferralDate" />
+          <ScalarProperty Name="ReferralTypeLanguageName" ColumnName="ReferralTypeLanguageName" />
+          <ScalarProperty Name="HospitalLanguageName" ColumnName="HospitalLanguageName" />
+          <ScalarProperty Name="ICDTencodeName" ColumnName="ICDTencodeName" />
+          <ScalarProperty Name="MedicalProcedureLanguageName" ColumnName="MedicalProcedureLanguageName" />
+          <ScalarProperty Name="PartyLanguageName" ColumnName="PartyLanguageName" />
+          <ScalarProperty Name="PartyLanguageID" ColumnName="PartyLanguageID" />
+          <ScalarProperty Name="ReferralTypeLanguageID" ColumnName="ReferralTypeLanguageID" />
+          <ScalarProperty Name="HospitalLanguageLanguageID" ColumnName="HospitalLanguageLanguageID" />
+          <ScalarProperty Name="ICDTenLanguageLanaguageID" ColumnName="ICDTenLanguageLanaguageID" />
+          <ScalarProperty Name="MedicalProcedureLanguageID" ColumnName="MedicalProcedureLanguageID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

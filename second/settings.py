@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+from django.conf.global_settings import STATIC_ROOT
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -42,6 +43,9 @@ INSTALLED_APPS = [
 """STATICFILES_DIRS=(
     '../accounts/templates/accounts/static'
 )"""
+TEMPLATE_DIRS = (
+    os.path.join(os.path.join(BASE_DIR,'accounts/templates')),
+)
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -121,8 +125,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+'''STATIC_URL = 'accounts/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,"accounts/static"),
+    os.path.join(BASE_DIR, 'accounts/static'),
     'accounts/static/'
 ]
-LOGIN_REDIRECT_URL="/account/login.html"
+STATIC_ROOT=os.path.join (BASE_DIR,'static')
+
+LOGIN_REDIRECT_URL="/account/login.html"'''
+
+

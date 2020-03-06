@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Information Management System</title>
+
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}"/>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/bootstrap/bootstrap.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/select2/select2.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/querybuilder/css/query-builder.default.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/datetimepicker/bootstrap-datetimepicker.min.css' %}" />
+    {#<link rel="stylesheet" type="text/css" href="{% static 'app/content/datepicker/animate.min.css' %}" />#}
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/iCheck/all.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/morris/morris.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/flags/flags.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/SmartWizard/smart_wizard.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/SmartWizard/smart_wizard_theme_circles.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/jvectormap/jquery-jvectormap-1.2.2.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/daterangepicker/daterangepicker.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/fontawesome/fontawesome.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/pivottable/pivot.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/jstree/style.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/jqpolt/jquery.jqplot.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/fullcanlendar/fullcalendar.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/jquery-ui/jquery-ui.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/jquery-ui/jquery-ui.structure.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/jquery-ui/jquery-ui.theme.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/jquery-ui.sortable/sortable.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/dendrogramtree/treeHireachy.css' %}" />
+    {#<link rel="stylesheet" type="text/css" href="{% static 'app/content/EasyAutoCompelte/easy-autocomplete.min.css' %}" />#}
+    {#<link rel="stylesheet" type="text/css" href="{% static 'app/content/EasyAutoCompelte/easy-autocomplete.themes.min' %}" />#}
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/layout/layout.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/layout/skins/_all-skins.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/dendrogramtree/treeHireachy.css' %}" />
+    <script src="{% static 'app/scripts/modernizr-2.6.2.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/datatable/jquery.dataTables.min.css' %}" />
+
+
+
+{% block head %}{% endblock head %}
+
+
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+    {#@{string Lan = MPCG.Library.Localization.CurrentLanguage(); }#}
+    <div class="wrapper">
+
+
+
+    <header class="main-header">
+        <!-- Logo -->
+        <a href="/CycleCaseDistribution/Index" class="logo">
+            <!-- mini logo for sidebar mini 50x50 pixels -->
+            <span class="logo-mini"></span>
+            <!-- logo for regular state and mobile devices -->
+            <span class="logo-lg">Information System</span>
+        </a>
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top">
+            <!-- Sidebar toggle button-->
+            <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                <span class="sr-only">Toggle navigation</span>
+            </a>
+            <div class="navbar-custom-menu">
+
+
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="/user/LogOut" class="">
+                            <i class="	glyphicon glyphicon-log-out" alt="Sign Out"></i>
+                            SignOut
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/user/ChangePassword" class="modal-link5">
+                            <i class="glyphicon glyphicon-lock" alt="Change Password"></i>
+                            ChangePassword
+                        </a>
+                    </li>
+
+
+
+
+                    <!-- Messages: style can be found in dropdown.less-->
+
+                    <!-- Notifications: style can be found in dropdown.less -->
+                    <!-- Tasks: style can be found in dropdown.less -->
+                    <!--Languages-->
+                    <!-- User Account: style can be found in dropdown.less -->
+                    <li class="dropdown user user-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+
+                            <span></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <!-- User image -->
+                            <li class="user-header">
+
+                            </li>
+                            <!-- Menu Body -->
+                            <!-- Menu Footer-->
+                            <li class="user-footer">
+
+                                <div class="col-md-4">
+                                    <a href="/user/LogOut" class="btn btn-default btn-flat">SignOut</a>
+                                </div>
+                                <div class="col-md-1"></div>
+                                <div class="col-md-4">
+                                    <a href="/user/ChangePassword" class="btn btn-default btn-flat modal-link5">ChangePassword</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- Control Sidebar Toggle Button -->
+
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+        <aside class="main-sidebar">
+
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+        <!-- Sidebar user panel -->
+        <div class="user-panel">
+            <div class="pull-left image">
+
+            </div>
+            <div class="pull-left info">
+
+
+            </div>
+        </div>
+        <!-- search form -->
+
+        <!-- /.search form -->
+        <!-- sidebar menu: : style can be found in sidebar.less -->
+        <ul class="sidebar-menu">
+            <li class="header"></li>
+            <li class="active treeview">
+                <a href="#">
+                    <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+
+
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-files-o"></i>
+                    <span>Upload File</span>
+                    <span class="pull-right-container">
+                        <span class="label label-primary pull-right"></span>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+
+                </ul>
+            </li>
+        <li class="treeview">
+            <a href="#">
+                <i class="fa fa-files-o"></i>
+                <span>CaseSearch</span>
+                <span class="pull-right-container">
+                    <span class="label label-primary pull-right"></span>
+                </span>
+            </a>
+            <ul class="treeview-menu">
+
+
+
+
+            </ul>
+        </li>
+
+        <li class="treeview">
+            <a href="#">
+                <i class="fa fa-files-o"></i>
+                <span>Administration</span>
+                <span class="pull-right-container">
+                    <span class="label label-primary pull-right"></span>
+                </span>
+            </a>
+            <ul class="treeview-menu">
+
+
+
+            </ul>
+        </li>
+
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-pie-chart"></i>
+                    <span>Reports</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+
+
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-pie-chart"></i>
+                    <span>Configuration</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+
+                </ul>
+
+
+
+                }
+            </li>
+
+
+        </ul>
+    </section>
+    <!-- /.sidebar -->
+</aside>
+
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <div class="form-horizontal" data-ng-app="myApp">
+
+                {% block content %}{% endblock %}
+
+
+            </div>
+        </div>
+        <!-- /.content-wrapper -->
+
+
+        <!-- Control Sidebar -->
+        <!-- /.control-sidebar -->
+        {#@Html.Partial("_ControlSideBar")#}
+        <!-- Add the sidebar's background. This div must be placed
+             immediately after the control sidebar -->
+        <div class="control-sidebar-bg"></div>
+    </div>
+    <!-- ./wrapper -->
+    <script src="{% static 'js.js' %}"></script>
+
+
+    <script src="{% static 'app/scripts//jquery/jquery-2.2.3.min.js' %}"></script>
+    <script src="{% static 'app/scripts/jquery-ui/jquery-ui.min.js' %}"></script>
+    <script src="{% static 'app/scripts/jquery/jquery.validate.js' %}"></script>
+    <script src="{% static 'app/scripts/ajax/jquery.unobtrusive-ajax.js' %}"></script>
+    <script src="{% static 'app/scripts/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.js' %}"></script>
+    <script src="{% static 'app/scripts/slimscroll/jquery.slimscroll.min.js' %}"></script>
+    <script src="{% static 'app/scripts/fastclick/fastclick.js' %}"></script>
+    <script src="{% static 'app/scripts/daterangepicker/moment-locales.js' %}"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="{% static 'app/scripts/datetimepicker/bootstrap-datetimepicker.js' %}"></script>
+    <script src="{% static 'app/scripts/pnotify/pnotify.custom.min.js' %}"></script>
+    <script src="{% static 'app/scripts/icheck/icheck.min.js' %}"></script>
+    <script src="{% static 'app/scripts/layout/rtl/app.min.js' %}"></script>
+    <script src="{% static 'app/scripts/select2/select2.min.js' %}"></script>
+    <script src="{% static 'app/scripts/datetimepicker/bootstrap-datetimepicker.js' %}"></script>
+    <script src="{% static 'app/scripts/daterangepicker/daterangepicker.js' %}"></script>
+    <script src="{% static 'app/scripts/bootstrap/bootstrap.min.js' %}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <script src="{% static 'app/scripts/datatable/jquery.dataTables.min.js' %}"></script>
+    <script src="{% static 'app/Scripts/SmartWizard/jquery.smartWizard.js' %}"></script>
+
+    {% block scripts %}{% endblock scripts %}
+</body>
+
+</html>

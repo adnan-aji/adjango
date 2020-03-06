@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Register</title>
+    {% load static %}
+    
+    <link rel="stylesheet" href="{% static 'account/style.css' %}">
+    <link rel="stylesheet" type="text/css" href={% static 'app/content/datatable/dataTables.bootstrap4.min.css' %}>
+
+{% endblock %}
+{% block content %}
+
+    <section class="content ">
+        <button type="button" class="btn btn-info btn-lg" id="myBtn">Add Student</button>
+        <div class="modal fade in" id="myModal" role="dialog">
+
+            <div class=" row align-self-center  d-flex">
+                <div class="modal-dialog">
+                    <!-- Horizontal Form -->
+
+                    <div class="box box-info">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Student Register Form</h3>
+                        </div>
+
+                        <!-- /.box-header -->
+                        <!-- form start -->
+                        <form class=" mx-auto form-horizontal" id="std_form" method="post">
+                            {% csrf_token %}
+                            <div class="box-body">
+                                <div class=" form-group">
+                                    <label for="inputEmail3" class="col-sm-3 col-5">ID</label>
+                                    <div class="col-sm-8 col-7">
+                                        <input type="number" id="std_id">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-3 col-4">Name</label>
+
+                                    <div class="col-sm-8 col-8">
+                                        <input type="text" id="std_name">
+                                    </div>
+                                </div>
+                                <div class="form-group" data-select2-id="13">
+                                    <label class="col-sm-3 col-4">Gender</label>
+                                    <div class="col-sm-4 col-8">
+                                        <!-- select2-hidden-accessible-->
+                                        <select class="select2  form-control " id="gender" class="gender_sel"
+                                                data-select2-id="1" tabindex="-1"
+                                                aria-hidden="false" title="dad">
+                                        </select>
+                                        <!--   <span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="2" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-1ra1-container"><span class="select2-selection__rendered" id="select2-1ra1-container" role="textbox" aria-readonly="true" title="Alabama">Alabama</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                                             -->
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputPassword3" class="col-sm-3 col-4">Salary</label>
+
+                                    <div class="col-sm-8 col-8">
+                                        <input type="number" id="std_salary">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- /.box-body -->
+                            <div class="box-footer  d-flex">
+                                <div>
+                                    <button type="submit" id="save_btn" class="col-4 col-sm-4 btn-success btn">Save
+                                    </button>
+
+
+                                    <button type="button" class="col-4 offset-1 col-sm-4 offset-sm-2  btn btn-danger"
+                                            data-dismiss="modal">Close
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-sm-8 col-8">
+                                <label id="mess"></label>
+                            </div>
+
+
+                            <!-- /.box-footer -->
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    </div>
+
+    <section class="content">
+        <div class="row d-flex">
+            <div class="col-md-6 ">
+                <table id="example" class=" table table-striped display col-sm-6" style="width:100%">
+                    <thead>
+                    <tr>
+                        <th>Full name</th>
+                        {#                        <th>ID</th>#}
+                        {#                         <th>Gender</th>#}
+                        {#                         <th>Salary</th>#}
+                        <th>Details</th>
+
+                    </tr>
+                    </thead>
+                    <tbody class="std_for_table">
+
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+    </section>
+
+{% endblock %}
+{% block scripts %}
+    <script src={% static 'admin/ajax.js' %}></script>
+    <script>
+        $("#myBtn").click(function () {
+                        $("#mess").html("");
+
+            $("#myModal").modal('show');
+        });
+
+    </script>
+{% endblock %}
